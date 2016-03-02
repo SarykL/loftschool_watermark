@@ -1,3 +1,28 @@
+//----------Language block -----------
+
+.language{
+  &__list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  &__link{
+    display: block;
+    width: 45px;
+    text-decoration: none;
+    color: #8e9298;
+    background: #d7d5d7;
+    padding: 0 5px;
+    font-size: 20px;
+    line-height: 35px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #fff;
+  }
+}
+
+
+
+//---------- Main block ------------
 
 .main-block{
   @include clearfix();
