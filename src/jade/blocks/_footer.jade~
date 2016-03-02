@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+.footer-container
+	small.copyright
+=======
+.footer__container
+	small.footer__container-copyright
+		| eeeeee
+>>>>>>> sidebar_slider
