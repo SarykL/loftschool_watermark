@@ -17,6 +17,10 @@
     line-height: 35px;
     box-sizing: border-box;
     border-bottom: 1px solid #fff;
+    &:hover{
+      color: #d7d5d7;
+      background: #8e9298;
+    }
   }
 }
 
@@ -47,6 +51,12 @@
     width: 40px;
     height: 40px;
     background: #d7d5d7;
+    &--like{
+      @include sprite($like);
+      &:hover{
+        @include sprite($like-h);
+      }
+    }
   }
 }
 
@@ -74,6 +84,7 @@
     margin: 0;
     color: #fff;
     margin-bottom: 60px;
+    font-family: $font-family-light;
   }
   &__unit{
     height: 535px;
