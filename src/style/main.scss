@@ -4,7 +4,8 @@
 @import
 	'config/grid',
 	'config/mixins',
-	'config/variables';
+	'config/variables',
+	'config/sprite';
 
 // 2. Base stuff
 
@@ -18,11 +19,14 @@
 
 @import
 	'layout/header',
-	'layout/main';
+	'layout/main-section';
+
 
 // 4. Components
 
 @import
+	'components/menu',
+	'components/sidebar',
 	'components/buttons';
 
 // 5. Vendors
