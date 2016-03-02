@@ -1,3 +1,67 @@
+//----------Language block -----------
+
+.language{
+  &__list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  &__link{
+    display: block;
+    width: 45px;
+    text-decoration: none;
+    color: #8e9298;
+    background: #d7d5d7;
+    padding: 0 5px;
+    font-size: 20px;
+    line-height: 35px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #fff;
+    &:hover{
+      color: #d7d5d7;
+      background: #8e9298;
+    }
+  }
+}
+
+//---------- Social block ------------
+
+.social{
+  &__list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 0;
+    position: relative;
+    left: -40px;
+    transition: left 1s;
+    width: 80px;
+    &:hover{
+      left: 0;
+    }
+  }
+  &__item{
+    &--like{
+      position: absolute;
+      left: 40px;
+    }
+  }
+  &__link{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #d7d5d7;
+    &--like{
+      @include sprite($like);
+      &:hover{
+        @include sprite($like-h);
+      }
+    }
+  }
+}
+
+
+//---------- Main block ------------
 
 .main-block{
   @include clearfix();
@@ -20,6 +84,7 @@
     margin: 0;
     color: #fff;
     margin-bottom: 60px;
+    font-family: $font-family-light;
   }
   &__unit{
     height: 535px;

@@ -1,7 +1,10 @@
 .idea
 node_modules
 bower_components
+dist
+PSD
 Goods
 dist
 *.sublime-project
 *.sublime-workspace
+
