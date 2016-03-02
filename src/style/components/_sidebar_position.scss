@@ -1,0 +1,82 @@
+.sidebar__position {
+	/*height: 205px;*/
+	padding-left: 19px;
+	padding-right: 19px;
+	padding-top: 13px;
+	font-family: $font-family-light, sans-serif;
+}
+
+.sidebar__position_title {
+	font-size: 14px;
+	color: #3b424d;
+	padding-bottom: 34px;
+}
+
+.sidebar__position_content {
+	padding-bottom: 28px;
+}
+
+.sidebar__position_square, .sidebar__position_coordinates {
+	display: inline-block;
+}
+
+.sidebar__position_square {
+	width: 100px;
+	height: 100px;
+	background-color: #dbe1e8;
+	border-radius: 5px;
+	border: 1px solid $secondary-color;
+	margin-right: 48px;
+}
+
+.sidebar__position_td {
+	width: 33px;
+	height: 33px;
+	border-right: 1px solid $secondary-color;
+	border-bottom: 1px solid $secondary-color;
+}
+
+.sidebar__position_table .sidebar__position_tr .sidebar__position_td:last-child {
+	border-right: none;
+}
+
+.sidebar__position_table .sidebar__position_tr:last-child .sidebar__position_td {
+	border-bottom: none;
+}
+
+.sidebar__position_coordinates {
+	height: 101px;
+	margin-top: 1px;
+
+}
+
+.sidebar__position_coordinate-block {
+	width: 44px;
+	height: 42px;
+	border: 1px solid $secondary-color;
+	border-radius: 3px;
+	position: relative;
+	font-family: 16px;
+
+	&:first-child {
+		margin-bottom: 12px;
+	}
+}
+
+.coordinateX:before {
+	content: "X";
+	position: absolute;
+	left: -18px;
+	bottom: 10px;
+}
+
+.coordinateY:before {
+	content: "Y";
+	position: absolute;
+	left: -19px;
+	bottom: 9px;
+}
+
+.sidebar__line {
+	margin-top: -17px;
+}
