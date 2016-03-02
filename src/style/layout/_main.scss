@@ -17,6 +17,7 @@
     line-height: 35px;
     box-sizing: border-box;
     border-bottom: 1px solid #fff;
+    font-family: $font-family-light;
     &:hover{
       color: #d7d5d7;
       background: #8e9298;
@@ -36,25 +37,48 @@
     left: -40px;
     transition: left 1s;
     width: 80px;
+    display: inline-block;
+    vertical-align: middle;
     &:hover{
       left: 0;
     }
   }
   &__item{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #d7d5d7;
+    text-align: center;
     &--like{
       position: absolute;
       left: 40px;
     }
   }
   &__link{
-    display: block;
-    width: 40px;
-    height: 40px;
-    background: #d7d5d7;
+    display: inline-block;
+    vertical-align: middle;
     &--like{
       @include sprite($like);
       &:hover{
         @include sprite($like-h);
+      }
+    }
+    &--fb{
+      @include sprite($fb);
+      &:hover{
+        @include sprite($fb-h);
+      }
+    }
+    &--tw{
+      @include sprite($tw);
+      &:hover{
+        @include sprite($tw-h);
+      }
+    }
+    &--vk{
+      @include sprite($vk);
+      &:hover{
+        @include sprite($vk-h);
       }
     }
   }
@@ -84,7 +108,7 @@
     margin: 0;
     color: #fff;
     margin-bottom: 60px;
-    font-family: $font-family-light;
+    font-family: 'robotothin', sans-serif;
   }
   &__unit{
     height: 535px;
