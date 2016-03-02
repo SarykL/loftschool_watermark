@@ -1,0 +1,36 @@
+
+.main-block{
+  @include clearfix();
+  width: 960px;
+  &__left{
+    width: 700px;
+    box-sizing: border-box;
+    float: left;
+  }
+  &__right{
+    width: 260px;
+    float: right;
+  }
+}
+.workspace{
+  padding: 15px 25px 25px 25px;
+  background: #6b6260;
+  &__title{
+    font-size: 36px;
+    margin: 0;
+    color: #fff;
+    margin-bottom: 60px;
+  }
+  &__unit{
+    height: 535px;
+    background: #fff;
+  }
+}
+.sidebar{
+  background: #ccc;
+  &__title{
+    font-size: 26px;
+    text-align: center;
+  }
+}
+
