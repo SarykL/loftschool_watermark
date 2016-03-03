@@ -1,4 +1,5 @@
 .inputs {
+  margin-top: 27px;
   margin-left: 20px;
 }
 
@@ -6,6 +7,11 @@
 .watermark__section {
   margin-bottom: 25px;
 }
+
+.watermark__section {
+  margin-top: -6px;
+}
+
 .picture__section-name,
 .watermark__section-name {
   display: block;
@@ -25,11 +31,12 @@
   display: inline-block;;
   height: 25px;
   width: 180px;
-  border: 1px solid #343943;
-  border-radius: 3px;
+  border: 1px solid #9eb2c0;
+  border-right: none;
   vertical-align: top;
   padding-left: 5px;
   line-height: 20px;
+  border-radius: 3px 0 0 3px;
 }
 
 .fake__placeholder {
@@ -44,11 +51,18 @@
   display: inline-block;
   vertical-align: top;
   background-color: #f97e76;
-  background-image: url(../img/input-pic.png);
-  background-repeat: no-repeat;
-  background-position: center;
   cursor: pointer;
   margin-left: -5px;
+  position: relative;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+
+  &:after {
+    content: '';
+    @include sprite($input-pic);
+    position: absolute;
+    top: 20%;
+    left: 25%;
+
+  }
 }
