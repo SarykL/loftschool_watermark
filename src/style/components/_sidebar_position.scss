@@ -1,0 +1,137 @@
+.sidebar__position {
+	padding-left: 19px;
+	padding-right: 19px;
+	padding-top: 13px;
+	font-family: $font-family-light, sans-serif;
+	box-sizing: border-box;
+	border-bottom: 1px solid #f4c3c2;
+	position: relative;
+
+	&:before, &:after {
+	    content: "";
+	    position: absolute;
+	}
+
+	&:before {
+	    border-left: 10px solid rgba(244, 195, 194, 0);
+	    border-right: 10px solid rgba(244, 195, 194, 0);
+	    border-top: 10px solid #f4c3c2;
+	    left: 119px;
+	    bottom: -11px;
+	}
+
+	&:after {
+	    border-left: 10px solid rgba(241, 241, 245, 0);
+	    border-right: 10px solid rgba(241, 241, 245, 0);
+	    border-top: 10px solid #f1f1f5;
+	    left: 119px;
+	    bottom: -10px;
+	}
+
+	&_title {
+		font-size: 14px;
+		color: #3b424d;
+		padding-bottom: 34px;
+	}
+
+	&_content {
+		padding-bottom: 31px;
+	}
+
+	&_square {
+		width: 100px;
+		height: 100px;
+		background-color: #dbe1e8;
+		border-radius: 5px;
+		border: 1px solid $secondary-color;
+		margin-right: 48px;
+	}
+
+	&_square, &_coordinates {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&_td {
+		width: 33px;
+		height: 33px;
+		border-right: 1px solid $secondary-color;
+		border-bottom: 1px solid $secondary-color;
+	}
+
+	&_table &_tr &_td:last-child {
+		border-right: none;
+	}
+
+	&_table &_tr:last-child &_td {
+		border-bottom: none;
+	}
+
+	&_coordinate-labelX, &_coordinate-labelY {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 2px;	
+	}
+
+}
+
+.sidebar__position_coordinate-labelX:before {
+	content: "X";
+	position: absolute;
+	left: -18px;
+	bottom: 23px;
+}
+
+.sidebar__position_coordinate-labelY:before {
+	content: "Y";
+	position: absolute;
+	left: -19px;
+	bottom: 9px;
+}
+
+.sidebar__position_coordinate-labelX .position_input.coordinateX {
+	margin-bottom: 12px;
+}
+
+.position_input {
+	width: 46px;
+	height: 45px;
+	border: 1px solid $secondary-color;
+	border-radius: 3px;
+	font-size: 22px;
+	outline: none;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.position__arrow {
+	height: 41px;
+	display: inline-block;
+	padding-top: 4px;
+
+	&_up {
+		@include sprite($arrow-up);
+	}
+
+	&_up:hover {
+		@include sprite($arrow-up-hover);
+	}
+
+	&_down {
+		@include sprite($arrow-down);
+	}
+
+	&_down:hover {
+		@include sprite($arrow-down-hover);
+	}
+}
+
+.position__arrow_up {
+	margin-bottom: 22px;
+	cursor: pointer;
+}
+
+.position__arrow_down {
+	cursor: pointer;
+}
