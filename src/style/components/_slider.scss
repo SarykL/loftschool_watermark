@@ -35,10 +35,13 @@
 			font-family: 'robotolight';
 			font-size: 14px;
 			color: #2e3641;
-			margin: 0 0 30px;
+			margin: 0 0 27px;
 		}		
 	}
 }
+
+
+//============Стилизация плагина jQuery UI============
 
 .ui-slider-horizontal {
 	height: 3px;
@@ -49,25 +52,18 @@
     background: #9eb2c0;
 }
 
-.ui-slider-handle {
-	@include sprite($regul);
-	width: 24px;
-	height: 24px;
-	&:hover {
-		@include sprite($regul-h);
-		cursor: url($regul-pointer-image);
-	}
-
-}
-
 .ui-slider-horizontal .ui-slider-handle {
-    top: -.7em;
+    top: -.64em;
     margin-left: -.6em;
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    /* */border: none; 
+    border: none; 
     @include sprite($regul);
 	&:hover {
 		@include sprite($regul-h);
+		border: none;
+		cursor: pointer;
+	}
 }
+//============Стилизация плагина jQuery UI============
