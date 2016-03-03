@@ -19,12 +19,18 @@
 
 @import
 	'layout/header',
-	'layout/main',
-	'layout/footer';
+<<<<<<< HEAD
+=======
+	'layout/footer',
+	'layout/main-section';
+
+>>>>>>> origin/markup
 
 // 4. Components
 
 @import
+	'components/menu',
+	'components/sidebar',
 	'components/buttons';
 
 // 5. Vendors
