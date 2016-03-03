@@ -1,4 +1,4 @@
-.sidebar__position {
+.sidebar-position {
 	padding-left: 19px;
 	padding-right: 19px;
 	padding-top: 13px;
@@ -28,17 +28,17 @@
 	    bottom: -10px;
 	}
 
-	&_title {
+	&-title {
 		font-size: 14px;
 		color: #3b424d;
 		padding-bottom: 34px;
 	}
 
-	&_content {
+	&-content {
 		padding-bottom: 31px;
 	}
 
-	&_square {
+	&-square {
 		width: 101px;
 		height: 101px;
 		background-color: #dbe1e8;
@@ -47,22 +47,22 @@
 		margin-right: 47px;
 	}
 
-	&_square, &_coordinates {
+	&-square, &-coordinates {
 		display: inline-block;
 		vertical-align: top;
 	}
 
-	&_list {
+	&-list {
 		padding-left: 0;
 		list-style: none;
 		font-size: 0;
 	}
 
-	&_item {
+	&__item {
 		display: inline-block;
 	}
 
-	&_link {
+	&__link {
 		display: block;
 		height: 33px;
 		width: 33px;
@@ -78,7 +78,7 @@
 		border-bottom: none;
 	}
 
-	&_coordinate-labelX, &_coordinate-labelY {
+	&__coordinate-labelX, &__coordinate-labelY {
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
@@ -87,25 +87,25 @@
 
 }
 
-.sidebar__position_coordinate-labelX:before {
+.sidebar-position__coordinate-labelX:before {
 	content: "X";
 	position: absolute;
 	left: -17px;
 	bottom: 23px;
 }
 
-.sidebar__position_coordinate-labelY:before {
+.sidebar-position__coordinate-labelY:before {
 	content: "Y";
 	position: absolute;
 	left: -18px;
 	bottom: 9px;
 }
 
-.sidebar__position_coordinate-labelX .position_input.coordinateX {
+.sidebar-position__coordinate-labelX .coordinateX {
 	margin-bottom: 12px;
 }
 
-.position_input {
+.position-input {
 	width: 46px;
 	height: 45px;
 	border: 1px solid $secondary-color;
@@ -116,33 +116,33 @@
 	text-align: center;
 }
 
-.position__arrow {
+.position-arrow {
 	height: 41px;
 	display: inline-block;
 	padding-top: 4px;
 
-	&_up {
+	&__up {
 		@include sprite($arrow-up);
 	}
 
-	&_up:hover {
+	&__up:hover {
 		@include sprite($arrow-up-hover);
 	}
 
-	&_down {
+	&__down {
 		@include sprite($arrow-down);
 	}
 
-	&_down:hover {
+	&__down:hover {
 		@include sprite($arrow-down-hover);
 	}
 }
 
-.position__arrow_up {
+.position-arrow__up {
 	margin-bottom: 22px;
 	cursor: pointer;
 }
 
-.position__arrow_down {
+.position-arrow__down {
 	cursor: pointer;
 }
