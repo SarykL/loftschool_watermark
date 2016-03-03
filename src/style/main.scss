@@ -22,14 +22,16 @@
 	'layout/footer',
 	'layout/main-section';
 
-// 4. Components
+// 4. Vendors
+
+@import
+	'vendors/framework',
+	'vendors/_jquery-ui';
+
+// 5. Components
 
 @import
 	'components/menu',
 	'components/sidebar',
+	'components/_slider',
 	'components/buttons';
-
-// 5. Vendors
-
-@import
-	'vendors/framework';
