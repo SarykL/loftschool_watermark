@@ -60,8 +60,12 @@
 
 	&_item {
 		display: inline-block;
-		width: 33px;
+	}
+
+	&_link {
+		display: block;
 		height: 33px;
+		width: 33px;
 		border-right: 1px solid $secondary-color;
 		border-bottom: 1px solid $secondary-color;
 	}
