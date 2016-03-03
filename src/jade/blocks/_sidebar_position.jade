@@ -2,19 +2,16 @@
 	.sidebar__position_title Положение
 	.sidebar__position_content
 		.sidebar__position_square
-			table.sidebar__position_table
-				tr.sidebar__position_tr
-					td.sidebar__position_td
-					td.sidebar__position_td
-					td.sidebar__position_td
-				tr.sidebar__position_tr
-					td.sidebar__position_td
-					td.sidebar__position_td
-					td.sidebar__position_td
-				tr.sidebar__position_tr
-					td.sidebar__position_td
-					td.sidebar__position_td
-					td.sidebar__position_td
+			ul.sidebar__position_list
+				li(data-position="top-left").sidebar__position_item.top-left
+				li(data-position="top-center").sidebar__position_item.top-center
+				li(data-position="top-right").sidebar__position_item.top-right
+				li(data-position="middle-left").sidebar__position_item.middle-left
+				li(data-position="middle-center").sidebar__position_item.middle-center
+				li(data-position="middle-right").sidebar__position_item.middle-right
+				li(data-position="bottom-left").sidebar__position_item.bottom-left
+				li(data-position="bottom-center").sidebar__position_item.bottom-center
+				li(data-position="bottom-right").sidebar__position_item.bottom-right
 		.sidebar__position_coordinates
 			.wrapper__position
 				label.sidebar__position_coordinate-labelX

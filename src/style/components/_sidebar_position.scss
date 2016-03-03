@@ -39,12 +39,12 @@
 	}
 
 	&_square {
-		width: 100px;
-		height: 100px;
+		width: 101px;
+		height: 101px;
 		background-color: #dbe1e8;
 		border-radius: 5px;
 		border: 1px solid $secondary-color;
-		margin-right: 48px;
+		margin-right: 47px;
 	}
 
 	&_square, &_coordinates {
@@ -52,18 +52,25 @@
 		vertical-align: top;
 	}
 
-	&_td {
+	&_list {
+		padding-left: 0;
+		list-style: none;
+		font-size: 0;
+	}
+
+	&_item {
+		display: inline-block;
 		width: 33px;
 		height: 33px;
 		border-right: 1px solid $secondary-color;
 		border-bottom: 1px solid $secondary-color;
 	}
 
-	&_table &_tr &_td:last-child {
+	.top-right, .middle-right, .bottom-right {
 		border-right: none;
 	}
 
-	&_table &_tr:last-child &_td {
+	.bottom-left, .bottom-center, .bottom-right {
 		border-bottom: none;
 	}
 
@@ -79,14 +86,14 @@
 .sidebar__position_coordinate-labelX:before {
 	content: "X";
 	position: absolute;
-	left: -18px;
+	left: -17px;
 	bottom: 23px;
 }
 
 .sidebar__position_coordinate-labelY:before {
 	content: "Y";
 	position: absolute;
-	left: -19px;
+	left: -18px;
 	bottom: 9px;
 }
 
