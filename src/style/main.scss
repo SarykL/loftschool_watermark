@@ -11,7 +11,7 @@
 
 @import
 	'vendors/framework',
-	'vendors/_jquery-ui';
+	'vendors/jquery-ui';
 
 // 3. Base stuff
 
@@ -32,7 +32,7 @@
 // 4. Components
 
 @import
-	'components/_sidebar_position.scss',
+	'components/sidebar_position.scss',
 	'components/buttons';
 
 // 5. Components
