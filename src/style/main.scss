@@ -7,7 +7,13 @@
 	'config/variables',
 	'config/sprite';
 
-// 2. Base stuff
+// 2. Vendors
+
+@import
+	'vendors/framework',
+	'vendors/_jquery-ui';
+
+// 3. Base stuff
 
 @import
 	'base/base',
@@ -15,22 +21,17 @@
 	'base/normalize',
 	'base/typography';
 
-// 3. Layout
+// 4. Layout
 
 @import
 	'layout/header',
 	'layout/footer',
 	'layout/main-section';
 
-
-// 4. Components
+// 5. Components
 
 @import
 	'components/menu',
 	'components/sidebar',
+	'components/_slider',
 	'components/buttons';
-
-// 5. Vendors
-
-@import
-	'vendors/framework';
