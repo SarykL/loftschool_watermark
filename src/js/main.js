@@ -1,1 +1,1 @@
-// partials/_opacity.js
+//= partials/_opacity.js
