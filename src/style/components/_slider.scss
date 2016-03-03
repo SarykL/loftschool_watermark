@@ -41,25 +41,33 @@
 }
 
 .ui-slider-horizontal {
-	height: 13px;
+	height: 3px;
 	background-color: #dbe1e8;
 }
 
 .ui-widget-header {
-    border: 1px solid #e78f08;
-    background: #9eb2c0 url("images/ui-bg_gloss-wave_35_f6a828_500x100.png") 50% 50% repeat-x;
-    color: #ffffff;
-    font-weight: bold;
+    background: #9eb2c0;
 }
 
 .ui-slider-handle {
 	@include sprite($regul);
-
-
+	width: 24px;
+	height: 24px;
 	&:hover {
 		@include sprite($regul-h);
-		border: none;
-		//cursor: url(@include sprite($regul-pointer));
+		cursor: url($regul-pointer-image);
 	}
 
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.7em;
+    margin-left: -.6em;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    /* */border: none; 
+    @include sprite($regul);
+	&:hover {
+		@include sprite($regul-h);
 }
