@@ -20,13 +20,12 @@
 @import
 	'layout/header',
 	'layout/main-section';
-
+	
 // 4. Components
-
 @import
 	'components/menu',
-	'components/buttons';
-
+	'components/buttons',
+	'components/_sidebar_inputs';
 // 5. Vendors
 
 @import
