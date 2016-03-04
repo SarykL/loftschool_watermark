@@ -28,18 +28,12 @@
 	'layout/footer',
 	'layout/main-section';
 
-
-// 4. Components
+// 5. Components
 
 @import
 	'components/sidebar_position',
 	'components/sidebar_inputs',
-	'components/buttons';
-
-// 5. Components
-
-@import
 	'components/menu',
 	'components/sidebar',
-	'components/_slider',
+	'components/slider',
 	'components/buttons';
