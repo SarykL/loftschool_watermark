@@ -1,12 +1,16 @@
 .menu {
-	float: left;
+	// float: left;
 	position: fixed;
-	top: 10%;
+	top: 105px;
+	left: 0;
+	// margin-right: 40px;
 }
 
 //----------Language block -----------
 
 .language{
+	margin-bottom: 20px;
+	font-size: 0;
 	&__list{
 	margin: 0;
 	padding: 0;

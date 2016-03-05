@@ -1,0 +1,12 @@
+.sidebar{
+	width: 260px;
+	float: right;
+	background: #f1f1f5;
+	&__title{
+		font-family: $font-family-light;
+		font-weight: 300;
+		color: #2e3641;
+		font-size: 26px;
+		text-align: center;
+	}
+}
