@@ -1,7 +1,7 @@
 .sidebar-position {
+	margin-top: 14px;
 	padding-left: 19px;
 	padding-right: 19px;
-	padding-top: 13px;
 	font-family: $font-family-light, sans-serif;
 	box-sizing: border-box;
 	border-bottom: 1px solid #f4c3c2;
@@ -31,11 +31,12 @@
 	&-title {
 		font-size: 14px;
 		color: #3b424d;
-		padding-bottom: 34px;
+		// margin-top: 10px;
+		margin-bottom: 35px;
 	}
 
 	&-content {
-		padding-bottom: 31px;
+		padding-bottom: 33px;
 	}
 
 	&-square {

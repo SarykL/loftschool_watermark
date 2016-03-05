@@ -1,15 +1,30 @@
 .inputs {
   margin-top: 27px;
-  margin-left: 20px;
+  padding-left: 20px;
+  position: relative;
+  border-bottom: 1px solid #f4c3c2;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    left: 120px; bottom: -20px;
+    border: 10px solid transparent;
+    border-top: 10px solid #f4c3c2;
+    }
+
+	&::after {
+  border-top: 10px solid #f1f1f5;
+  bottom: -19px;
+  }
 }
 
-.picture__section,
-.watermark__section {
+.picture__section {
   margin-bottom: 25px;
 }
 
 .watermark__section {
   margin-top: -6px;
+  margin-bottom: 32px;
 }
 
 .picture__section-name,
