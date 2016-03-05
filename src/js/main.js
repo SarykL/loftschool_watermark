@@ -21,7 +21,3 @@ $('input[type="file"]').on('change', function () {
 
 
 });
-
-// $('input[type="file"]').on('change', function () {
-//
-// });
