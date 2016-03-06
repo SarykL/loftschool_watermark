@@ -1,3 +1,8 @@
+.wrapper-position{
+	&:first-child{
+		margin-bottom: 10px;
+	}
+}
 .sidebar-position {
 	margin-top: 14px;
 	padding-left: 19px;
@@ -96,7 +101,7 @@
 	content: "X";
 	position: absolute;
 	left: -17px;
-	bottom: 23px;
+	bottom: 10px;
 }
 
 .sidebar-position__coordinate-labelY:before {
@@ -111,47 +116,47 @@
 }
 
 
-.position-input {
-	width: 46px;
-	height: 45px;
-	border: 1px solid $secondary-color;
-	border-radius: 3px;
-	font-size: 22px;
-	outline: none;
-	box-sizing: border-box;
-	text-align: center;
-}
+// .position-input {
+// 	width: 46px;
+// 	height: 45px;
+// 	border: 1px solid $secondary-color;
+// 	border-radius: 3px;
+// 	font-size: 22px;
+// 	outline: none;
+// 	box-sizing: border-box;
+// 	text-align: center;
+// }
 
-.position-arrow{
-	height: 41px;
-	display: inline-block;
-	padding-top: 4px;
+// .position-arrow{
+// 	height: 41px;
+// 	display: inline-block;
+// 	padding-top: 4px;
 
-	&__up {
-		@include sprite($arrow-up);
-	}
+// 	&__up {
+// 		@include sprite($arrow-up);
+// 	}
 
-	&__up:hover {
-		@include sprite($arrow-up-hover);
-	}
+// 	&__up:hover {
+// 		@include sprite($arrow-up-hover);
+// 	}
 
-	&__down {
-		@include sprite($arrow-down);
-	}
+// 	&__down {
+// 		@include sprite($arrow-down);
+// 	}
 
-	&__down:hover {
-		@include sprite($arrow-down-hover);
-	}
-}
+// 	&__down:hover {
+// 		@include sprite($arrow-down-hover);
+// 	}
+// }
 
-.position-arrow__up {
-	margin-bottom: 22px;
-	cursor: pointer;
-}
+// .position-arrow__up {
+// 	margin-bottom: 22px;
+// 	cursor: pointer;
+// }
 
-.position-arrow__down {
-	cursor: pointer;
-}
+// .position-arrow__down {
+// 	cursor: pointer;
+// }
 
 
 
