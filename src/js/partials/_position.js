@@ -17,6 +17,7 @@ $(document).ready(function(){
     });
     var positionX = $('.workspace__square').position().left;
     var positionY = $('.workspace__square').position().top;
+    // var mathPositionX = positionX.toFixed(0)
     $('.coordinateX').val(positionX);
     $('.coordinateY').val(positionY);
   });

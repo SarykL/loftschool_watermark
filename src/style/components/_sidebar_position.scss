@@ -51,6 +51,7 @@
 		border-radius: 5px;
 		border: 1px solid $secondary-color;
 		margin-right: 47px;
+		overflow: hidden;
 	}
 
 	&-square, &-coordinates {
@@ -75,6 +76,7 @@
 		width: 33px;
 		border-right: 1px solid $secondary-color;
 		border-bottom: 1px solid $secondary-color;
+
 		&--active{
 			background: #f97e76;
 		}
@@ -114,49 +116,5 @@
 .sidebar-position__coordinate-labelX .coordinateX {
 	margin-bottom: 12px;
 }
-
-
-// .position-input {
-// 	width: 46px;
-// 	height: 45px;
-// 	border: 1px solid $secondary-color;
-// 	border-radius: 3px;
-// 	font-size: 22px;
-// 	outline: none;
-// 	box-sizing: border-box;
-// 	text-align: center;
-// }
-
-// .position-arrow{
-// 	height: 41px;
-// 	display: inline-block;
-// 	padding-top: 4px;
-
-// 	&__up {
-// 		@include sprite($arrow-up);
-// 	}
-
-// 	&__up:hover {
-// 		@include sprite($arrow-up-hover);
-// 	}
-
-// 	&__down {
-// 		@include sprite($arrow-down);
-// 	}
-
-// 	&__down:hover {
-// 		@include sprite($arrow-down-hover);
-// 	}
-// }
-
-// .position-arrow__up {
-// 	margin-bottom: 22px;
-// 	cursor: pointer;
-// }
-
-// .position-arrow__down {
-// 	cursor: pointer;
-// }
-
 
 
