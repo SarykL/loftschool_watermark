@@ -45,7 +45,7 @@
 		background-color: #dbe1e8;
 		border-radius: 5px;
 		border: 1px solid $secondary-color;
-		margin-right: 47px;
+		margin-right: 35px;
 	}
 
 	&-square, &-coordinates {
@@ -79,78 +79,52 @@
 		border-bottom: none;
 	}
 
-	&__coordinate-labelX, &__coordinate-labelY {
-		position: relative;
+
+}
+
+
+
+.ui-spinner {
+	background: none;
+	border: none;
+	position: relative;
+
+	&-input {
+		font-family: $font-family-light;
+		width: 46px;
+		height: 45px;
+		border: 1px solid $secondary-color;
+		border-radius: 3px;
+		outline: none;
+		box-sizing: border-box;
+		text-align: center;
+
+	}
+
+	&-button {
+		height: 21px;
+		width: 15px;
 		display: inline-block;
-		vertical-align: top;
-		margin-right: 2px;
-	}
+		// margin: 2px;
+		background: none;
+		border: none;
+		cursor: pointer;
 
-}
+		&.ui-spinner-up {
+			border: none;
+			background: none;
+			@include sprite($arrow-up)
+			margin-top: 8px;
+			margin-left: 0;
+		}
 
-.sidebar-position__coordinate-labelX:before {
-	content: "X";
-	position: absolute;
-	left: -17px;
-	bottom: 23px;
-}
-
-.sidebar-position__coordinate-labelY:before {
-	content: "Y";
-	position: absolute;
-	left: -18px;
-	bottom: 9px;
-}
-
-.sidebar-position__coordinate-labelX .coordinateX {
-	margin-bottom: 12px;
-}
-
-
-.position-input {
-	width: 46px;
-	height: 45px;
-	border: 1px solid $secondary-color;
-	border-radius: 3px;
-	font-size: 22px;
-	outline: none;
-	box-sizing: border-box;
-	text-align: center;
-}
-
-.position-arrow, .ui-spinner-button, .ui-state-default, .ui-spinner-button{
-	height: 41px;
-	display: inline-block;
-	padding-top: 4px;
-
-	&__up {
-		@include sprite($arrow-up);
-	}
-
-	&__up:hover {
-		@include sprite($arrow-up-hover);
-	}
-
-	&__down {
-		@include sprite($arrow-down);
-	}
-
-	&__down:hover {
-		@include sprite($arrow-down-hover);
+		&.ui-spinner-down {
+			border: none;
+			background: none;
+			@include sprite($arrow-down)
+			margin-bottom: 10px;
+		}
+		
 	}
 }
 
-.position-arrow__up {
-	margin-bottom: 22px;
-	cursor: pointer;
-}
-
-.position-arrow__down {
-	cursor: pointer;
-}
-
-
-
-.ui-widget input{
-	font-family: $font-family-light, sans-serif;
-}

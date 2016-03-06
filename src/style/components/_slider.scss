@@ -55,16 +55,16 @@
 .ui-slider-horizontal .ui-slider-handle {
     top: -.64em;
     margin-left: -.6em;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border: none;
-    background: url("images/ui-bg_glass_100_f6f6f6_1x400.png") 50% 50% repeat-x;
-    @include sprite($regul);
-	&:hover {
+	border: none;
+	outline: none;
+	background: none;
+	@include sprite($regul);
+		&:hover {
 		@include sprite($regul-h);
 		border: none;
 		cursor: pointer;
 	}
 }
+
+
 //============Стилизация плагина jQuery UI============

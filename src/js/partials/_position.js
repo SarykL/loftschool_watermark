@@ -15,9 +15,15 @@ $(document).ready(function(){
     $('.coordinateY').val(positionY);
   });
 
+
+
+
+
+// Реализовать второй спинер  .coordinateX .coordinateY
+
   $('.position-input').spinner({
-    icons:{ down: "position-arrow__down",
-            up: "position-arrow__up" },
+    icons:{ down: "ui-spinner-down",
+            up: "ui-spinner-up" },
     spin: function(event, ui){
       var valuer = ui.value;
       $('.workspace__square').css({
@@ -26,8 +32,9 @@ $(document).ready(function(){
       })
     },
     min: 0,
-    max: $('.workspace__unit').width() - $('.workspace__square').width()
+    max: $('.workspace__unit').width() - $('.workspace__square').width()   // Рассмотреть overflov
 
   })
 
 });
+
