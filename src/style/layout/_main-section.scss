@@ -24,10 +24,11 @@
 		height: 530px;
 		background: #fff;
 		position: relative;
+		overflow: hidden;
 	}
 	&__square{
-		width: 150px;
-		height: 150px;
+		width: 200px;
+		height: 130px;
 		background: #ccc;
 		display: inline-block;
 	}
