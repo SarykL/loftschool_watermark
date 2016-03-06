@@ -3,7 +3,6 @@
 .main-section {
 	@extend .container;
 	margin-top: 60px;
-	// padding-left: 40px;
 	@include clearfix;
 }
 
@@ -21,6 +20,7 @@
 		font-weight: 300;
 	}
 	&__unit{
+		width: 650px;
 		height: 530px;
 		background: #fff;
 		position: relative;
