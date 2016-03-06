@@ -23,15 +23,13 @@
 	&__unit{
 		height: 530px;
 		background: #fff;
+		position: relative;
 	}
 	&__square{
-		width: 100px;
-		height: 100px;
+		width: 150px;
+		height: 150px;
 		background: #ccc;
 		display: inline-block;
-		span{
-			display: block;
-		}
 	}
 }
 
