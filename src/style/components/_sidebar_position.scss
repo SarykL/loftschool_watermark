@@ -83,7 +83,7 @@
 		position: relative;
 		display: inline-block;
 		vertical-align: top;
-		margin-right: 2px;	
+		margin-right: 2px;
 	}
 
 }
@@ -106,6 +106,7 @@
 	margin-bottom: 12px;
 }
 
+
 .position-input {
 	width: 46px;
 	height: 45px;
@@ -117,7 +118,7 @@
 	text-align: center;
 }
 
-.position-arrow {
+.position-arrow, .ui-spinner-button, .ui-state-default, .ui-spinner-button{
 	height: 41px;
 	display: inline-block;
 	padding-top: 4px;
@@ -146,4 +147,10 @@
 
 .position-arrow__down {
 	cursor: pointer;
+}
+
+
+
+.ui-widget input{
+	font-family: $font-family-light, sans-serif;
 }
