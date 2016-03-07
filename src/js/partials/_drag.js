@@ -1,4 +1,4 @@
-$(document).ready(function(){
+;$(document).ready(function(){
   $('.workspace__square').draggable({
         drag: function(event, ui){
           $('.coordinateX').val(ui.position.left);
