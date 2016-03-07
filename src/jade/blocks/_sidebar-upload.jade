@@ -1,12 +1,12 @@
 .inputs
   .picture__section
     span.picture__section-name
-      |Картинка проекта
+      |Исходное изображение
     span.fake__input
       span.fake__placeholder
         |Загрузите изображение    
     label(for="fileupload", class="").fileupload__label
-      input(type="file", id="fileupload" name="name", value="").fileupload__input  
+      input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input  
   .watermark__section
     span.watermark__section-name
       |Водяной знак
@@ -14,4 +14,5 @@
       span.fake__placeholder
         |Загрузите изображение
     label(for="watermark", class="").fileupload__label
-      input(type="file", name="name", id="watermark" value="").fileupload__input
+      input(type="file", name="name", id="watermark" value="", accept="image/jpeg,image/png,image/gif").fileupload__input
+

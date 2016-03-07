@@ -2,38 +2,38 @@
 
 // 1. Configuration
 @import
- 'config/grid',
- 'config/mixins',
- 'config/variables',
- 'config/sprite';
+	'config/grid',
+	'config/mixins',
+	'config/variables',
+	'config/sprite';
 
 // 2. Vendors
 
 @import
- 'vendors/framework',
- 'vendors/jquery-ui';
+	'vendors/framework',
+	'vendors/jquery-ui';
 
 // 3. Base stuff
 
 @import
- 'base/base',
- 'base/fonts',
- 'base/normalize',
- 'base/typography';
+	'base/base',
+	'base/fonts',
+	'base/normalize',
+	'base/typography';
 
 // 4. Layout
 
 @import
- 'layout/header',
- 'layout/footer',
- 'layout/main-section';
+	'layout/header',
+	'layout/footer',
+	'layout/main-section';
 
 // 5. Components
 
 @import
- 'components/sidebar_position',
- 'components/sidebar_inputs',
- 'components/menu',
- 'components/sidebar',
- 'components/slider',
- 'components/buttons';
+	'components/sidebar_position',
+	'components/sidebar_inputs',
+	'components/menu',
+	'components/sidebar',
+	'components/slider',
+	'components/buttons';

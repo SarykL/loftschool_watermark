@@ -1,0 +1,149 @@
+.sidebar-position {
+	margin-top: 14px;
+	padding-left: 19px;
+	padding-right: 19px;
+	font-family: $font-family-light, sans-serif;
+	box-sizing: border-box;
+	border-bottom: 1px solid #f4c3c2;
+	position: relative;
+
+	&:before, &:after {
+	    content: "";
+	    position: absolute;
+	}
+
+	&:before {
+	    border-left: 10px solid rgba(244, 195, 194, 0);
+	    border-right: 10px solid rgba(244, 195, 194, 0);
+	    border-top: 10px solid #f4c3c2;
+	    left: 119px;
+	    bottom: -11px;
+	}
+
+	&:after {
+	    border-left: 10px solid rgba(241, 241, 245, 0);
+	    border-right: 10px solid rgba(241, 241, 245, 0);
+	    border-top: 10px solid #f1f1f5;
+	    left: 119px;
+	    bottom: -10px;
+	}
+
+	&-title {
+		font-size: 14px;
+		color: #3b424d;
+		// margin-top: 10px;
+		margin-bottom: 35px;
+	}
+
+	&-content {
+		padding-bottom: 33px;
+	}
+
+	&-square {
+		width: 101px;
+		height: 101px;
+		background-color: #dbe1e8;
+		border-radius: 5px;
+		border: 1px solid $secondary-color;
+		margin-right: 47px;
+	}
+
+	&-square, &-coordinates {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&-list {
+		padding-left: 0;
+		list-style: none;
+		font-size: 0;
+	}
+
+	&__item {
+		display: inline-block;
+	}
+
+	&__link {
+		display: block;
+		height: 33px;
+		width: 33px;
+		border-right: 1px solid $secondary-color;
+		border-bottom: 1px solid $secondary-color;
+	}
+
+	.top-right, .middle-right, .bottom-right {
+		border-right: none;
+	}
+
+	.bottom-left, .bottom-center, .bottom-right {
+		border-bottom: none;
+	}
+
+	&__coordinate-labelX, &__coordinate-labelY {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 2px;	
+	}
+
+}
+
+.sidebar-position__coordinate-labelX:before {
+	content: "X";
+	position: absolute;
+	left: -17px;
+	bottom: 23px;
+}
+
+.sidebar-position__coordinate-labelY:before {
+	content: "Y";
+	position: absolute;
+	left: -18px;
+	bottom: 9px;
+}
+
+.sidebar-position__coordinate-labelX .coordinateX {
+	margin-bottom: 12px;
+}
+
+.position-input {
+	width: 46px;
+	height: 45px;
+	border: 1px solid $secondary-color;
+	border-radius: 3px;
+	font-size: 22px;
+	outline: none;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.position-arrow {
+	height: 41px;
+	display: inline-block;
+	padding-top: 4px;
+
+	&__up {
+		@include sprite($arrow-up);
+	}
+
+	&__up:hover {
+		@include sprite($arrow-up-hover);
+	}
+
+	&__down {
+		@include sprite($arrow-down);
+	}
+
+	&__down:hover {
+		@include sprite($arrow-down-hover);
+	}
+}
+
+.position-arrow__up {
+	margin-bottom: 22px;
+	cursor: pointer;
+}
+
+.position-arrow__down {
+	cursor: pointer;
+}
