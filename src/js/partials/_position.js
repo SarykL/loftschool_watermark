@@ -17,9 +17,10 @@ $(document).ready(function(){
     });
     var positionX = $('.workspace__square').position().left;
     var positionY = $('.workspace__square').position().top;
-    // var mathPositionX = positionX.toFixed(0)
-    $('.coordinateX').val(positionX);
-    $('.coordinateY').val(positionY);
+    var mathPositionX = positionX ^ 0;
+    var mathPositionY = positionY ^ 0;
+    $('.coordinateX').val(mathPositionX);
+    $('.coordinateY').val(mathPositionY);
   });
 
 //--------------- Spinner ---------------

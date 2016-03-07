@@ -20,7 +20,7 @@
 		font-weight: 300;
 	}
 	&__unit{
-		max-width: 650px;
+		width: 650px;
 		height: 530px;
 		background: #fff;
 		position: relative;
@@ -31,7 +31,6 @@
 		height: 130px;
 		background: #ccc;
 		display: inline-block;
-		margin-left: 0.5px;
 	}
 }
 
