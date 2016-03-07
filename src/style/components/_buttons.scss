@@ -7,6 +7,16 @@
 	@include clearfix;
 	padding: 0 11px 25px 11px;
 
+	&_disable {
+		display: none;
+		opacity: .5;
+		background: #f1f1f5;
+		width: 245px;
+		height: 45px;
+		position: absolute;
+		z-index: 100;
+	}
+
 }
 
 .button {

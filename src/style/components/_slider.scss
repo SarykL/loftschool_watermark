@@ -37,6 +37,16 @@
 			color: #2e3641;
 			margin: 0 0 27px;
 		}
+
+		&_disable {
+			display: none;
+			opacity: .5;
+			background: #f1f1f5;
+			width: 220px;
+			height: 75px;
+			position: absolute;
+			z-index: 100;
+		}
 	}
 }
 

@@ -36,7 +36,8 @@
 	&-title {
 		font-size: 14px;
 		color: #3b424d;
-		// margin-top: 10px;
+		font-family: $font-family-light;
+		font-weight: 300;
 		margin-bottom: 35px;
 	}
 
@@ -96,6 +97,16 @@
 		display: inline-block;
 		vertical-align: top;
 		margin-right: 2px;
+	}
+
+	&_disable {
+		display: none;
+		opacity: .5;
+		background: #f1f1f5;
+		width: 220px;
+		height: 175px;
+		position: absolute;
+		z-index: 100;
 	}
 
 }

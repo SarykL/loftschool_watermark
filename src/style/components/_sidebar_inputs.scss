@@ -25,6 +25,16 @@
 .watermark__section {
   margin-top: -6px;
   margin-bottom: 32px;
+
+  &_disable {
+      display: none;
+      opacity: .5;
+      background: #f1f1f5;
+      width: 220px;
+      height: 65px;
+      position: absolute;
+      z-index: 100;
+  }
 }
 
 .picture__section-name,
