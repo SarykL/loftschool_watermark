@@ -1,3 +1,8 @@
+.wrapper-position{
+	&:first-child{
+		margin-bottom: 10px;
+	}
+}
 .sidebar-position {
 	margin-top: 14px;
 	padding-left: 19px;
@@ -45,7 +50,12 @@
 		background-color: #dbe1e8;
 		border-radius: 5px;
 		border: 1px solid $secondary-color;
+<<<<<<< HEAD
 		margin-right: 35px;
+=======
+		margin-right: 47px;
+		overflow: hidden;
+>>>>>>> js_drag
 	}
 
 	&-square, &-coordinates {
@@ -61,6 +71,7 @@
 
 	&__item {
 		display: inline-block;
+
 	}
 
 	&__link {
@@ -69,6 +80,10 @@
 		width: 33px;
 		border-right: 1px solid $secondary-color;
 		border-bottom: 1px solid $secondary-color;
+
+		&--active{
+			background: #f97e76;
+		}
 	}
 
 	.top-right, .middle-right, .bottom-right {
@@ -79,52 +94,28 @@
 		border-bottom: none;
 	}
 
-
-}
-
-
-
-.ui-spinner {
-	background: none;
-	border: none;
-	position: relative;
-
-	&-input {
-		font-family: $font-family-light;
-		width: 46px;
-		height: 45px;
-		border: 1px solid $secondary-color;
-		border-radius: 3px;
-		outline: none;
-		box-sizing: border-box;
-		text-align: center;
-
-	}
-
-	&-button {
-		height: 21px;
-		width: 15px;
+	&__coordinate-labelX, &__coordinate-labelY {
+		position: relative;
 		display: inline-block;
-		// margin: 2px;
-		background: none;
-		border: none;
-		cursor: pointer;
-
-		&.ui-spinner-up {
-			border: none;
-			background: none;
-			@include sprite($arrow-up)
-			margin-top: 8px;
-			margin-left: 0;
-		}
-
-		&.ui-spinner-down {
-			border: none;
-			background: none;
-			@include sprite($arrow-down)
-			margin-bottom: 10px;
-		}
-		
+		vertical-align: top;
+		margin-right: 2px;
 	}
+
 }
 
+.sidebar-position__coordinate-labelX:before {
+	content: "X";
+	position: absolute;
+	left: -17px;
+	bottom: 10px;
+}
+
+.sidebar-position__coordinate-labelY:before {
+	content: "Y";
+	position: absolute;
+	left: -18px;
+	bottom: 9px;
+}
+
+
+}

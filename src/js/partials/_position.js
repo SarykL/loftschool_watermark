@@ -1,40 +1,57 @@
+//----------- Position block -------------
+
 $(document).ready(function(){
-  $('.sidebar-position__link').on('click', function(e){
-    e.preventDefault();
-    var aTTr = $(this).attr('data-position');
-    console.log(aTTr)
-    $('.workspace__square').position({
-      my: aTTr,
-      at: aTTr,
-      of: '.workspace__unit',
-      collision: 'none',
-    });
-    var positionX = $('.workspace__square').position().left;
-    var positionY = $('.workspace__square').position().top;
-    $('.coordinateX').val(positionX);
-    $('.coordinateY').val(positionY);
-  });
+	$('.sidebar-position__link').on('click', function(e){
+		e.preventDefault();
+
+		var aTTr = $(this).attr('data-position');
+
+		$('.sidebar-position__link').removeClass('sidebar-position__link--active')
+		$(this).addClass('sidebar-position__link--active')
+
+		$('.workspace__square').position({
+			my: aTTr,
+			at: aTTr,
+			of: '.workspace__unit',
+			collision: 'none',
+		});
+		var positionX = $('.workspace__square').position().left;
+		var positionY = $('.workspace__square').position().top;
+		var mathPositionX = positionX ^ 0;
+		var mathPositionY = positionY ^ 0;
+		$('.coordinateX').val(mathPositionX);
+		$('.coordinateY').val(mathPositionY);
+	});
 
 
+//--------------- Spinner ---------------
 
+	$('.coordinateX').spinner({
 
+		spin: function(event, ui){
+			var valuer = ui.value;
 
-// Реализовать второй спинер  .coordinateX .coordinateY
+			$('.workspace__square').css({
+				left: valuer + 'px'
+			})
+		},
 
-  $('.position-input').spinner({
-    icons:{ down: "ui-spinner-down",
-            up: "ui-spinner-up" },
-    spin: function(event, ui){
-      var valuer = ui.value;
-      $('.workspace__square').css({
-        left: valuer + 'px',
-        // top: valuer + 'px'
-      })
-    },
-    min: 0,
-    max: $('.workspace__unit').width() - $('.workspace__square').width()   // Рассмотреть overflov
+		min: 0,
+		max: $('.workspace__unit').width() - $('.workspace__square').width()
+	});
 
-  })
+	$('.coordinateY').spinner({
+		spin: function(event, ui){
+			var valuer = ui.value;
 
+			$('.workspace__square').css({
+					top: valuer + 'px'
+				})
+
+		},
+
+		min: 0,
+		max: $('.workspace__unit').height() - $('.workspace__square').height()
+	});
 });
 
