@@ -6,7 +6,7 @@
       span.fake__placeholder
         |Загрузите изображение    
     label(for="fileupload", class="").fileupload__label
-      input(id="fileupload" type="file" name="files[0]" multiple="").fileupload__input  
+      input(id="fileupload" type="file" name="files[]" multiple="").fileupload__input  
   .watermark__section
     .watermark__section_disable
     span.watermark__section-name
@@ -15,5 +15,5 @@
       span.fake__placeholder
         |Загрузите изображение
     label(for="watermark", class="").fileupload__label
-      input(id="fileupload" type="file" name="files1[]" value="", accept="image/jpeg,image/png,image/gif").fileupload__input
+      input(value="", accept="image/jpeg,image/png,image/gif").fileupload__input
 

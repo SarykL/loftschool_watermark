@@ -10,29 +10,27 @@
 	.text(fileName);
  });*/
 
- ;$(document).ready(function(){
-	$(function () {
-	    'use strict';
-	    // Initialize the jQuery File Upload widget:
-	    $('#fileupload').fileupload({
-	        // Uncomment the following to send cross-domain cookies:
-	        //xhrFields: {withCredentials: true},
-	        url: 'server/php/',
-	        add: function(e, data) {
-	        	console.log('add');
-	        	data.submit();
-	        },
-	        done: function(e, data) {
-	        	console.log(data);
-	        	var img = $('<img></img>');
-	        	/*var	uploadImg = data.result.files[0];
 
-	        	img.attr('src', uploadImg.url);
-	        	img.appendTo('.upload-img');*/
-	        	console.log(data.files);
-	        	console.log(data.result[1]);
-	        	console.log(data.result.files.name);
-	        }
-	    });
-	});
+$(function () {
+    'use strict';
+    // Initialize the jQuery File Upload widget:
+    $('#fileupload').fileupload({
+        // Uncomment the following to send cross-domain cookies:
+        //xhrFields: {withCredentials: true},
+        url: 'server/php/',
+        add: function(e, data) {
+        	console.log('add');
+        	data.submit();
+        },
+        done: function(e, data) {
+        	console.log(data);
+        	var img = $('<img></img>'),
+        	/**/uploadImg = data.files[0];
+
+        	/**/
+        	img.attr('src', uploadImg.url);
+        	img.appendTo('.upload-img');
+        	console.log(uploadImg);
+	    }
+    });
 });
