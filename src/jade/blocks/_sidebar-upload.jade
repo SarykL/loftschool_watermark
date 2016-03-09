@@ -1,18 +1,22 @@
 .inputs
-  .picture__section
-    span.picture__section-name
-      |Исходное изображение
-    span.fake__input
-      span.fake__placeholder
-        |Загрузите изображение    
-    label(for="fileupload", class="").fileupload__label
-      input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input  
-  .watermark__section
-    span.watermark__section-name
-      |Водяной знак
-    span.fake__input
-      span.fake__placeholder
-        |Загрузите изображение
-    label(for="watermark", class="").fileupload__label
-      input(type="file", name="name", id="watermark" value="", accept="image/jpeg,image/png,image/gif").fileupload__input
-
+  form(action="js/libs/upload/server/php/" method="POST" enctype="multipart/form-data")#fileuploads
+    .picture__section
+      span.picture__section-name
+        |Исходное изображение
+      span.fake__input
+        span.fake__placeholder
+          |Загрузите изображение    
+      label(for="fileupload", class="").fileupload__label
+        input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input-img
+      span.error_message
+        | Файл не того формата!   
+    .watermark__section
+      span.watermark__section-name
+        |Водяной знак
+      span.fake__input
+        span.fake__placeholder
+          |Загрузите изображение
+      label(for="watermark", class="").fileupload__label
+        input(type="file", name="name", id="watermark" value="", accept="image/jpeg,image/png,image/gif").fileupload__input-watermark
+      span.error_message
+        | Файл не того формата!  
