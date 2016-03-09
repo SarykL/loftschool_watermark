@@ -25,12 +25,10 @@ $(function () {
         done: function(e, data) {
         	console.log(data);
         	var img = $('<img></img>'),
-        	/**/uploadImg = data.files[0];
-
-        	/**/
+        	uploadImg = data.result.files[0];
         	img.attr('src', uploadImg.url);
         	img.appendTo('.upload-img');
-        	console.log(uploadImg);
+        	console.log(uploadImg.name);
 	    }
     });
 });
