@@ -1,4 +1,5 @@
 // creates uploaded file name appearing in input
+/**/
 $( 'input[type="file"]' )
   .on( 'change', function() {
     var file = ( $( this ) )
@@ -14,13 +15,18 @@ $( 'input[type="file"]' )
 
 
   $('#fileuploads').fileupload({
-      url: 'js/libs/upload/server/php/',
+      url: 'server/php',
       add: function (e, data) {
         console.log('add');
         data.submit();
       },
       done: function (e, data) {
-        console.log('done');
+        console.log(data);
+    	var img = $('<img></img>'),
+			uploadImg = data.result.files[0];
+    	img.attr('src', uploadImg.url);
+    	img.appendTo('.workspace__unit');
+        console.log(data);
       }
   });
 
