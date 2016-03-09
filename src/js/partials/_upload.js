@@ -23,9 +23,16 @@
 	        	data.submit();
 	        },
 	        done: function(e, data) {
-	        	console.log('done');
-	        }	        
+	        	console.log(data);
+	        	var img = $('<img></img>');
+	        	/*var	uploadImg = data.result.files[0];
 
+	        	img.attr('src', uploadImg.url);
+	        	img.appendTo('.upload-img');*/
+	        	console.log(data.files);
+	        	console.log(data.result[1]);
+	        	console.log(data.result.files.name);
+	        }
 	    });
 	});
 });
