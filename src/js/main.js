@@ -10,3 +10,4 @@
 
 //= partials/_reset.js
 
+//= partials/_social-sharing.js
