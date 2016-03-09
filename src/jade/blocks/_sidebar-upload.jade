@@ -1,18 +1,18 @@
 .inputs
   .picture__section
-    span.picture__section-name
+    span.picture__section-name.lng
       |Исходное изображение
     span.fake__input
-      span.fake__placeholder
-        |Загрузите изображение    
+      span.fake__placeholder.lng
+        |Загрузите изображение
     label(for="fileupload", class="").fileupload__label
-      input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input  
+      input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input
   .watermark__section
     .watermark__section_disable
-    span.watermark__section-name
+    span.watermark__section-name.lng
       |Водяной знак
     span.fake__input
-      span.fake__placeholder
+      span.fake__placeholder.lng
         |Загрузите изображение
     label(for="watermark", class="").fileupload__label
       input(type="file", name="name", id="watermark" value="", accept="image/jpeg,image/png,image/gif").fileupload__input

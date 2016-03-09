@@ -10,3 +10,5 @@
 
 //= partials/_reset.js
 
+//= partials/_lang.js
+

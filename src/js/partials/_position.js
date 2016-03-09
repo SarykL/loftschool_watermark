@@ -35,6 +35,20 @@
 				left: valuer + 'px'
 			});
 		},
+		change: function(event, ui){
+			var valuer = $('.coordinateX').val();
+
+			$('.workspace__square').css({
+				left: valuer + 'px'
+			});
+		},
+		stop: function(event, ui){
+			var valuer = $('.coordinateX').val();
+
+			$('.workspace__square').css({
+				left: valuer + 'px'
+			});
+		},
 
 		min: 0,
 		max: $('.workspace__unit').width() - $('.workspace__square').width()
@@ -49,7 +63,21 @@
 				});
 
 		},
+		change: function(event, ui){
+			var valuer = $('.coordinateY').val();
 
+			$('.workspace__square').css({
+				top: valuer + 'px'
+			});
+		},
+
+		stop: function(event, ui){
+			var valuer = $('.coordinateY').val();
+
+			$('.workspace__square').css({
+				top: valuer + 'px'
+			});
+		},
 		min: 0,
 		max: $('.workspace__unit').height() - $('.workspace__square').height()
 	});
