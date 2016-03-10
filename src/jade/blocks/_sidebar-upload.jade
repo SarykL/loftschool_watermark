@@ -5,11 +5,11 @@
 				|Исходное изображение
 			span.fake__input
 				span.fake__placeholder(data-translate="downloadImage")
-					|Загрузите изображение    
+					|Загрузите изображение
 			label(for="fileupload", class="").fileupload__label
 				input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input-img
-			span.error_message
-				| Файл не того формата!   
+			span.error_message(data-translate="formatError")
+				| Файл не того формата!
 		.watermark__section
 			.watermark__section_disable
 			span.watermark__section-name(data-translate="watermark")
@@ -19,5 +19,5 @@
 					|Загрузите изображение
 			label(for="watermark", class="").fileupload__label
 				input(type="file", name="name", id="watermark" value="", accept="image/jpeg,image/png,image/gif").fileupload__input-watermark
-			span.error_message
+			span.error_message(data-translate="formatError")
 				| Файл не того формата!
