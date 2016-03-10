@@ -13,17 +13,55 @@ $( 'input[type="file"]' )
       .text( fileName );
   } );
 
-var uploads = [ '#fileupload', '#watermark' ];
+var uploads = [ '#fileupload', '#watermark' ],
+    spaces = ['.workspace__unit','.workspace__square'];
   $.each( uploads, function( index, item ) {
     var mainImg = $( '#fileupload' ),
-      watermark = $( '#watermark' ),
-      current;
+      	watermark = $( '#watermark' ),
+      	current;
     if ( item == '#fileupload' ) {
-      current = mainImg;
+	    $(item).fileupload({
+	      dataType: 'json',
+	      url: 'server/php/',
+	      add: function( e, data ) {
+	        console.log( 'add' );
+	        data.submit();
+	      },
+	      done: function( e, data ) {
+	        var upload = data.result.files[ 0 ],
+	        	img = $('<img></img>').css({
+	        		position: 'static'
+	        	});
+	    	img.attr('src', upload.url);
+	    	img.appendTo(spaces[0]);
+	      }
+	    })
     } else if ( item == '#watermark' ) {
-      current = watermark;
+	    $(item).fileupload({
+	      dataType: 'json',
+	      url: 'server/php/',
+	      add: function( e, data ) {
+	        console.log( 'add' );
+	        data.submit();
+	      },
+	      done: function( e, data ) {
+	        var upload = data.result.files[ 0 ],
+	        	img = $('<img></img>').css({
+	        		position: 'absolute'
+	        	});
+	        console.log( upload );
+	        console.log(current);
+	        console.log(upload.url);
+	    	img.attr('src', upload.url);
+	    	img.appendTo(spaces[1]);
+	      }
+	    })
     }
 
+  } );
+
+
+/*
     $(item).fileupload({
       dataType: 'json',
       url: 'server/php/',
@@ -38,8 +76,7 @@ var uploads = [ '#fileupload', '#watermark' ];
         console.log(current);
         console.log(upload.url);
     	img.attr('src', upload.url);
-    	img.appendTo('.workspace__square');
+    	img.appendTo(spaces[0]);
       }
     });
-
-  } );
+*/
