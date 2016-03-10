@@ -13,32 +13,31 @@ $( 'input[type="file"]' )
   } );
 
 
-  $('#fileuploads').fileupload({
+
+  var uploads = [ '#fileupload', '#watermark' ];
+  $.each( uploads, function( index, item ) {
+    var mainImg = $( '#fileupload' ),
+      watermark = $( '#watermark' ),
+      current;
+    if ( item == '#fileupload' ) {
+      current = mainImg;
+    } else if ( item == '#watermark' ) {
+      current = watermark;
+    }
+
+    $(item).fileupload({
+      dataType: 'json',
       url: 'js/libs/upload/server/php/',
-      add: function (e, data) {
-        console.log('add');
+      add: function( e, data ) {
+        console.log( 'add' );
         data.submit();
       },
-      done: function (e, data) {
-        console.log('done');
+      done: function( e, data ) {
+        var upload = data.result.files[ 0 ];
+        console.log( upload );
+        console.log(current);
+        console.log(upload.url);
       }
-  });
+    });
 
-  // $( '.fileupload__input' ).fileupload({
-  //   url: '../dist/server/php',
-  //   dataType: 'json',
-  //   add: function (e, data) {
-  //     imgName = data.files[0].name;
-  //     if (!(imgName.match(/\.(jpeg|jpg|png|gif)$/i))) {
-  //       $(this).parent().siblings('.error_message').css('font-size','14px'); // показываем предупреждение что не картинка
-  //       return;
-  //     } else {
-  //       $(this).parent().siblings('.error_message').css('font-size','0');
-  //       data.formData = {
-  //         img: data.files[0]
-  //       };
-  //       data.submit(); // отправляем данные на сервер
-  //       console.log('add');
-  //     }
-  //   }
-  // });
+  } );
