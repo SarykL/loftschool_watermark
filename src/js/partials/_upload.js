@@ -26,16 +26,19 @@ var uploads = [ '#fileupload', '#watermark' ];
 
     $(item).fileupload({
       dataType: 'json',
-      url: 'js/libs/upload/server/php/',
+      url: 'server/php/',
       add: function( e, data ) {
         console.log( 'add' );
         data.submit();
       },
       done: function( e, data ) {
-        var upload = data.result.files[ 0 ];
+        var upload = data.result.files[ 0 ],
+        	img = $('<img></img>');
         console.log( upload );
         console.log(current);
         console.log(upload.url);
+    	img.attr('src', upload.url);
+    	img.appendTo('.workspace__square');
       }
     });
 
