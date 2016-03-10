@@ -36,7 +36,6 @@ var uploads = [ '#fileupload', '#watermark' ];
         console.log( upload );
         console.log(current);
         console.log(upload.url);
->>>>>>> origin/js_upload
       }
     });
 
