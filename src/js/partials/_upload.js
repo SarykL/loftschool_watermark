@@ -14,7 +14,7 @@ $( 'input[type="file"]' )
   } );
 
 
-  $('#fileuploads').fileupload({
+  $('#fileupload').fileupload({
       url: 'server/php',
       add: function (e, data) {
         console.log('add');
@@ -22,11 +22,14 @@ $( 'input[type="file"]' )
       },
       done: function (e, data) {
         console.log(data);
-    	var img = $('<img></img>'),
-			uploadImg = data.result.files[0];
+        console.log(data.result);
+        // data.result
+    	// data.textStatus;
+    	// data.jqXHR;
+    	/**/var img = $('<img></img>'),
+		uploadImg = data.result.files[0];
     	img.attr('src', uploadImg.url);
     	img.appendTo('.workspace__unit');
-        console.log(data);
       }
   });
 
