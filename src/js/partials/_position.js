@@ -37,8 +37,8 @@
 		},
 		change: function(event, ui){
 			var valuer = $('.coordinateX').val();
-			var maxWidth = $('.workspace__unit').width() - $('.workspace__square').width()
-			$('.coordinateX').attr('max', maxWidth)
+			var maxWidth = $('.workspace__unit').width() - $('.workspace__square').width();
+			$('.coordinateX').attr('max', maxWidth);
 
 			$('.workspace__square').css({
 				left: valuer + 'px'
@@ -111,11 +111,5 @@ $('.coordinateY').keyup(function(e){
     	if(valCoordY > maxHeight) $('.coordinateY').val(maxHeight);
 
 	});
-
-
-// 		min: 0,
-// 		max: $('.workspace__unit').height() - $('.workspace__square').height()
-// 	});
-// });
 
 
