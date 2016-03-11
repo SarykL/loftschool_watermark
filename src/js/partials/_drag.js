@@ -1,8 +1,8 @@
 ;$(document).ready(function(){
   $('.workspace__square').draggable({
         drag: function(event, ui){
-          $('.coordinateX').val(ui.position.left);
-          $('.coordinateY').val(ui.position.top);
+          $('.coordinateX').val(ui.position.left ^ 0);
+          $('.coordinateY').val(ui.position.top ^ 0);
         },
         cursor: "move",
         containment: "parent"
