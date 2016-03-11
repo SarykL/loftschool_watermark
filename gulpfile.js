@@ -23,7 +23,7 @@ var path = {
         img: 'dist/img/',
         fonts: 'dist/fonts/',
         js: 'dist/js/',
-        php: 'dist/php/',
+        php: 'dist/server/',
         json: 'dist/js/json/'
     },
     src: {
@@ -32,7 +32,7 @@ var path = {
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
         js: 'src/js/*.js',
-        php: 'src/php/*.php',
+        php: 'src/server/php/**/*.*',
         json: 'src/js/json/*.json'
     },
     watch: {
@@ -40,7 +40,7 @@ var path = {
         style: 'src/style/**/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
-        php: 'src/php/**/*.*',
+        php: 'src/server/**/*.*',
         js: 'src/js/**/*.*'
 
     },

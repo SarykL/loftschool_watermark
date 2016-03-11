@@ -22,7 +22,7 @@ var uploads = [ '#fileupload', '#watermark' ],
     if ( item == '#fileupload' ) {
 	    $(item).fileupload({
 	      dataType: 'json',
-	      url: '/php/',
+	      url: 'server/php/',
 	      add: function( e, data ) {
 	        console.log( 'add' );
 	        data.submit();
@@ -39,7 +39,7 @@ var uploads = [ '#fileupload', '#watermark' ],
     } else if ( item == '#watermark' ) {
 	    $(item).fileupload({
 	      dataType: 'json',
-	      url: '/php/',
+	      url: 'server/php/',
 	      add: function( e, data ) {
 	        console.log( 'add' );
 	        data.submit();
