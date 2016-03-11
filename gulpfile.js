@@ -32,7 +32,7 @@ var path = {
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
         js: 'src/js/*.js',
-        php: 'src/server/php/**/*.*',
+        php: 'src/server/**/*.*',
         json: 'src/js/json/*.json'
     },
     watch: {
