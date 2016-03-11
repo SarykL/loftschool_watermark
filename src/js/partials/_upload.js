@@ -32,7 +32,7 @@ $.each( uploads, function( index, item ) {
 	    	img.attr('src', ground.url);
 	    	img.appendTo(spaces[0]);
 			var result = $.ajax({
-				url: '../server/php/merge.php',
+				url: 'server/php/merge.php',
 				type: 'POST',
 				dataType: 'json',
 				data: ground,
@@ -77,7 +77,7 @@ $.each( uploads, function( index, item ) {
 });
 
 $.ajax({
-	url: 'merge.php',
+	url: '../server/php/merge.php',
 	type: 'POST',
 	dataType: 'json',
 	data: 'water',
@@ -92,9 +92,6 @@ $.ajax({
 .always(function() {
 	console.log("complete123");
 });
-
-
-
 
 	/*
 	var mergephp = 'server/php/merge.php'
