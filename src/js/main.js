@@ -13,4 +13,3 @@
 //= partials/_lang.js
 
 //= partials/_social-sharing.js
-

@@ -131,6 +131,7 @@
 	bottom: 9px;
 }
 
+
 .single-mode {
 	display: inline-block;
 	cursor: pointer;
@@ -151,4 +152,5 @@
 		@include sprite($tiling-mode-a);
 	}
 }
+
 

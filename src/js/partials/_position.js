@@ -65,6 +65,7 @@
 				});
 
 		},
+
 		change: function(event, ui){
 			var valuer = $('.coordinateY').val();
 
@@ -110,3 +111,11 @@ $('.coordinateY').keyup(function(e){
     	if(valCoordY > maxHeight) $('.coordinateY').val(maxHeight);
 
 	});
+
+
+// 		min: 0,
+// 		max: $('.workspace__unit').height() - $('.workspace__square').height()
+// 	});
+// });
+
+
