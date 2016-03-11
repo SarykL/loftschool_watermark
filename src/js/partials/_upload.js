@@ -40,10 +40,8 @@ $.each( uploads, function( index, item ) {
 			console.log(e);
 			return result;
 	      }
-
 	    });
 	} else if ( item == '#watermark' ) {
-
 	    $(item).fileupload({
 	      dataType: 'json',
 	      url: 'server/php/',
@@ -74,7 +72,6 @@ $.each( uploads, function( index, item ) {
 				console.log("complete");
 			});
 	      }
-
 	    });
 	}
 });
