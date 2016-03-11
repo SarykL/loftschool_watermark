@@ -23,6 +23,7 @@ var path = {
         img: 'dist/img/',
         fonts: 'dist/fonts/',
         js: 'dist/js/',
+        php: 'dist/php/',
         json: 'dist/js/json/'
     },
     src: {
@@ -31,6 +32,7 @@ var path = {
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
         js: 'src/js/*.js',
+        php: 'src/php/*.php',
         json: 'src/js/json/*.json'
     },
     watch: {
@@ -38,6 +40,7 @@ var path = {
         style: 'src/style/**/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
+        php: 'src/php/**/*.*',
         js: 'src/js/**/*.*'
 
     },
@@ -139,6 +142,13 @@ gulp.task('json:build', function() {
         .pipe(gulp.dest(path.build.json))
 });
 
+// PHP build
+
+gulp.task('php:build', function() {
+    gulp.src(path.src.php)
+        .pipe(gulp.dest(path.build.php))
+});
+
 
 
 // JS build
@@ -158,6 +168,7 @@ gulp.task('build', [
     'fonts:build',
     'image:build',
     'js:build',
+    'php:build',
     'json:build'
 ]);
 

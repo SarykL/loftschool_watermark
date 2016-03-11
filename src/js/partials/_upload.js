@@ -22,7 +22,7 @@ var uploads = [ '#fileupload', '#watermark' ],
     if ( item == '#fileupload' ) {
 	    $(item).fileupload({
 	      dataType: 'json',
-	      url: 'server/php/',
+	      url: '/php/',
 	      add: function( e, data ) {
 	        console.log( 'add' );
 	        data.submit();
@@ -35,11 +35,11 @@ var uploads = [ '#fileupload', '#watermark' ],
 	    	img.attr('src', upload.url);
 	    	img.appendTo(spaces[0]);
 	      }
-	    })
+	    });
     } else if ( item == '#watermark' ) {
 	    $(item).fileupload({
 	      dataType: 'json',
-	      url: 'server/php/',
+	      url: '/php/',
 	      add: function( e, data ) {
 	        console.log( 'add' );
 	        data.submit();
@@ -55,7 +55,7 @@ var uploads = [ '#fileupload', '#watermark' ],
 	    	img.attr('src', upload.url);
 	    	img.appendTo(spaces[1]);
 	      }
-	    })
+	    });
     }
 
   } );
