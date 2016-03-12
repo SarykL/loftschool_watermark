@@ -26,6 +26,9 @@
 		background: url('/img/bg-mini.png');
 		position: relative;
 		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	&__square{
 		background: #ccc;
