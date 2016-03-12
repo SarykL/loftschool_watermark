@@ -7,7 +7,7 @@
 				span.fake__placeholder(data-translate="downloadImage")
 					|Загрузите изображение
 			label(for="fileupload", class="").fileupload__label
-				input(type="file", id="fileupload" name="name", value="", accept="image/jpeg,image/png,image/gif").fileupload__input-img
+				input(type="file", id="fileupload", name="files[]").fileupload__input-img
 			span.error_message(data-translate="formatError")
 				| Файл не того формата!
 		.watermark__section
@@ -18,6 +18,6 @@
 				span.fake__placeholder(data-translate="downloadImage")
 					|Загрузите изображение
 			label(for="watermark", class="").fileupload__label
-				input(type="file", name="name", id="watermark" value="", accept="image/jpeg,image/png,image/gif").fileupload__input-watermark
+				input(type="file", id="watermark", name="files[]").fileupload__input-watermark
 			span.error_message(data-translate="formatError")
 				| Файл не того формата!
