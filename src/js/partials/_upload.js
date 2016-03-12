@@ -6,7 +6,7 @@ var dataSize = {
 	wmHeight: 0, 
 	wmWidth: 0,
 	scaleWidth: 0, 
-	scaleHeig: 0 
+	scaleHeight: 0 
 };
 
 $( 'input[type="file"]' )
@@ -74,7 +74,7 @@ $.each( uploads, function( index, item ) {
 	      done: function( e, data ) {
 	        var water = data.result.files[ 0 ],
 	        	img = $('<img></img>').css({
-	        		position: 'absolute'
+	        		position: 'absolute'           //
 	        	});
 	    	img.attr('src', water.url);
 		    	img.load(function(){
