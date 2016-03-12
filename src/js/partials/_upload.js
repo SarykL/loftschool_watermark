@@ -14,7 +14,7 @@ $( 'input[type="file"]' )
   } );
 
 var uploads = [ '#fileupload', '#watermark' ],
-    spaces = ['.workspace__unit','.workspace__square'];
+    spaces = ['.workspace__background','.workspace__square'];
 $.each( uploads, function( index, item ) {
 	if ( item == '#fileupload' ) {
 	    $(item).fileupload({
@@ -100,7 +100,7 @@ $.ajax({
 		type: 'POST',
 		dataType: 'json',
 	}).fail( function (ans) {
-		console.log('проблемы в PHP');				
+		console.log('проблемы в PHP');
 	});
 		//console.log(result);
 //===============================================
