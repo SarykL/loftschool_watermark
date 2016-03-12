@@ -5,8 +5,9 @@ var dataSize = {
 	bgHeight: 0,
 	wmHeight: 0,
 	wmWidth: 0,
-	scaleWidth: 0,
-	scaleHeig: 0
+	scaleWidth: 0, 
+	scaleHeight: 0 
+
 };
 
 $( 'input[type="file"]' )
@@ -73,12 +74,14 @@ $.each( uploads, function( index, item ) {
 	      },
 	      done: function( e, data ) {
 	        var water = data.result.files[ 0 ],
-	        	img = $('<img></img>')
+
+	        	img = $('<img></img>');
             // var maxHeightSp = dataSize.bgHeight - dataSize.wmHeight;
 
           //   .css({
 	        	// 	position: 'absolute'
 	        	// });
+
 	    	img.attr('src', water.url);
 		    	img.load(function(){
            // console.log(img.width() + ':' + img.height());

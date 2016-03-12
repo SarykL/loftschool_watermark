@@ -6,5 +6,7 @@
         },
         cursor: "move",
         containment: "parent"
+
     }).filter('.workspace__background');
+
 });
