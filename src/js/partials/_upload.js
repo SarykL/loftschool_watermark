@@ -1,5 +1,14 @@
 // creates uploaded file name appearing in input
 /**/
+var dataSize = {
+	bgWidth: 0, 
+	bgHeight: 0, 
+	wmHeight: 0, 
+	wmWidth: 0,
+	scaleWidth: 0, 
+	scaleHeig: 0 
+};
+
 $( 'input[type="file"]' )
   .on( 'change', function() {
     var file = ( $( this ) )
@@ -14,7 +23,7 @@ $( 'input[type="file"]' )
   } );
 
 var uploads = [ '#fileupload', '#watermark' ],
-    spaces = ['.workspace__unit','.workspace__square'];
+    spaces = ['.workspace__background','.workspace__watermark'];
 $.each( uploads, function( index, item ) {
 	if ( item == '#fileupload' ) {
 	    $(item).fileupload({
@@ -30,6 +39,18 @@ $.each( uploads, function( index, item ) {
 	        		position: 'static'
 	        	});
 	    	img.attr('src', ground.url);
+	    	img.load(function(){
+                   console.log(img.width() + ':' + img.height());
+                   dataSize.bgWidth = img.width();
+                   dataSize.bgHeight = img.height();
+                   console.log(dataSize);
+					//  if widthbg> canvas &
+		    	img.css({
+		    		width: '100%',
+		    		height: 'auto'
+		    	});
+		    	// else
+               });
 	    	img.appendTo(spaces[0]);
 			var result = $.ajax({
 				url: 'server/php/merge.php',
@@ -40,6 +61,8 @@ $.each( uploads, function( index, item ) {
 			console.log(e);
 			return result;
 	      }
+
+
 	    });
 	} else if ( item == '#watermark' ) {
 	    $(item).fileupload({
@@ -54,6 +77,22 @@ $.each( uploads, function( index, item ) {
 	        		position: 'absolute'
 	        	});
 	    	img.attr('src', water.url);
+		    	img.load(function(){
+           // console.log(img.width() + ':' + img.height());
+           dataSize.wmWidth = img.width();
+           dataSize.wmHeight = img.height();
+           // console.log(dataSize);
+			//  if widthbg> canvas &
+
+			dataSize.scaleWidth = dataSize.bgWidth/dataSize.wmWidth;
+			dataSize.scaleHeight = dataSize.bgHeight/dataSize.wmHeight;
+    	img.css({
+			width: dataSize.wmWidth/dataSize.scaleWidth + 'px',
+	    		// height: dataSize.wmHeight/dataSize.scaleHeight + 'px'
+	    		height: 'auto'
+    	});
+    	// else
+       });
 	    	img.appendTo(spaces[1]);
 			$.ajax({
 				url: '../server/php/merge.php',
