@@ -74,6 +74,8 @@ $.each( uploads, function( index, item ) {
 	      done: function( e, data ) {
 	        var water = data.result.files[ 0 ],
 	        	img = $('<img></img>')
+            // var maxHeightSp = dataSize.bgHeight - dataSize.wmHeight;
+
           //   .css({
 	        	// 	position: 'absolute'
 	        	// });
@@ -82,6 +84,23 @@ $.each( uploads, function( index, item ) {
            // console.log(img.width() + ':' + img.height());
            dataSize.wmWidth = img.width();
            dataSize.wmHeight = img.height();
+
+           //------------- Max position spinner-------------------
+
+           var heightSpinner = $('.workspace__background').height() - $('.workspace__watermark').height();
+
+            var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
+
+            var widthSpinner = $('.workspace__background').width() - $('.workspace__watermark').width();
+
+            var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
+
+            maxY.spinner();
+            maxX.spinner();
+
+            //------------- End max position spinner-------------------
+
+
 
            // console.log(dataSize);
 			//  if widthbg> canvas &

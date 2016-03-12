@@ -99,8 +99,9 @@
 			},
 
 			min: 0,
-			max: $('.workspace__background').height() - $('.workspace__watermark').height()
 		});
+
+
 
 
 //---------- Numeric entry in input only -------------
