@@ -1,5 +1,5 @@
 ;$(document).ready(function(){
-  $('.workspace__square').draggable({
+  $('.workspace__watermark').draggable({
         drag: function(event, ui){
           $('.coordinateX').val(ui.position.left ^ 0);
           $('.coordinateY').val(ui.position.top ^ 0);

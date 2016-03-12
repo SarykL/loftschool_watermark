@@ -73,19 +73,21 @@ $.each( uploads, function( index, item ) {
 	      },
 	      done: function( e, data ) {
 	        var water = data.result.files[ 0 ],
-	        	img = $('<img></img>').css({
-	        		position: 'absolute'
-	        	});
+	        	img = $('<img></img>')
+          //   .css({
+	        	// 	position: 'absolute'
+	        	// });
 	    	img.attr('src', water.url);
 		    	img.load(function(){
            // console.log(img.width() + ':' + img.height());
            dataSize.wmWidth = img.width();
            dataSize.wmHeight = img.height();
+
            // console.log(dataSize);
 			//  if widthbg> canvas &
 
-			dataSize.scaleWidth = dataSize.bgWidth/dataSize.wmWidth;
-			dataSize.scaleHeight = dataSize.bgHeight/dataSize.wmHeight;
+			// dataSize.scaleWidth = dataSize.bgWidth/dataSize.wmWidth;
+			// dataSize.scaleHeight = dataSize.bgHeight/dataSize.wmHeight;
     	img.css({
 			width: dataSize.wmWidth/dataSize.scaleWidth + 'px',
 	    		// height: dataSize.wmHeight/dataSize.scaleHeight + 'px'

@@ -11,6 +11,7 @@
 	background-color: rgba(46, 54, 65, .54);
 	width: 700px;
 	float: left;
+	position: relative;
 	&__title{
 		font-size: 36px;
 		margin: 0;
@@ -30,6 +31,13 @@
 		background: #ccc;
 		display: inline-block;
 	}
+	&__background{
+		position: relative;
+	}
+	&__watermark{
+		position: absolute;
+	}
 }
+
 
 
