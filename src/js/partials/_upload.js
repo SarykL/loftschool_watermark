@@ -210,11 +210,11 @@ $.each( uploads, function( index, item ) {
 
              //------------- Max position spinner-------------------
 
-             var heightSpinner = dataSize.originHeightBg - dataSize.originHeightWm;
+             var heightSpinner = dataSize.bgHeight - dataSize.wmHeight;
 
               var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
 
-              var widthSpinner = dataSize.originWidthBg - dataSize.originWidthWm;
+              var widthSpinner = dataSize.bgWidth - dataSize.wmWidth;
 
               var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
 
