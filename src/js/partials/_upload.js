@@ -147,5 +147,6 @@ $('.download-btn').click(function() {
 	})
 	.always(function() {
 		console.log("complete");
+		document.location.href="server/php/down.php?period=week&action=CSV"
 	});
 });
