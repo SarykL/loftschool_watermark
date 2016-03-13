@@ -44,6 +44,5 @@
 	$('.language__link--ru').on('click', function(e){
 		e.preventDefault();
 		$.redrawLanguage('ru');
-
 	});
 });
