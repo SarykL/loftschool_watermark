@@ -135,8 +135,10 @@ $.each( uploads, function( index, item ) {
 //   wmWidth: 0,
 //   scaleWidth: 0,
 //   scaleHeight: 0
-
 // };
+
+
+
             if(dataSize.scaleBg !== 1){
               dataSize.wmWidth = Math.round(dataSize.wmWidth / dataSize.scaleBg);
               dataSize.wmHeight = Math.round(dataSize.wmHeight / dataSize.scaleBg);
@@ -144,16 +146,32 @@ $.each( uploads, function( index, item ) {
 
 
 
+            // if(dataSize.wmWidth > dataSize.bgWidth || dataSize.wmHeight > dataSize.bgHeight){
 
-            if(dataSize.wmWidth > dataSize.bgWidth || dataSize.wmHeight > dataSize.bgHeight){
+            //   var wmRatio = dataSize.wmWidth / dataSize.wmHeight;
 
-              bgRatio = dataSize.bgWidth / dataSize.bgHeight;
-              wmRatio = dataSize.wmWidth / dataSize.wmHeight;
-              if(bgRatio < wmRatio){
+            //   var bgRatio = dataSize.bgWidth / dataSize.bgHeight;
+            //   if(bgRatio < wmRatio){
 
-              }
 
-            }
+
+
+            //   }
+            //   else{
+
+            //     dataSize.bgWidth = Math.round(dataSize.canvasHeight * bgRatio);
+            //     dataSize.bgHeight = dataSize.canvasHeight;
+            //   }
+            // }
+            // dataSize.scaleBg = dataSize.originWidth / dataSize.bgWidth;
+
+            //   img.css({
+            //     width: dataSize.bgWidth,
+            //     height: dataSize.bgHeight
+            //   });
+
+
+
 
 
 
