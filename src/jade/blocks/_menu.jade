@@ -2,7 +2,7 @@
 	//-------- Language block ------------
 
 	.language
-		- var lang = [['#', 'rus', 'РУС'], ['#', 'eng', 'ENG']]
+		- var lang = [['#', 'ru', 'РУС'], ['#', 'eng', 'ENG']]
 		ul.language__list
 			each item in lang
 				li.language__item
@@ -23,4 +23,4 @@
 		ul.social__list
 			each item in social
 				li(class='social__item social__item--#{item[1]}')
-					a(href="#{item[0]}" class="social__link social__link--#{item[1]}" target="_blank").social__link= item[2]
+					a(href="#{item[0]}" class="social__link social__link--#{item[1]}" target="_blank" id="#{item[1]}" + "_link").social__link= item[2]
