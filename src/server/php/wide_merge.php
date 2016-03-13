@@ -4,7 +4,7 @@ include 'lib/WideImage.php';
 
 $ground_url = $_POST['ground_url'];
 $water_url = $_POST['water_url'];
-
+//$water_opacity = $_POST['water_opacity'];
 
 // основной фон
 $img = substr($ground_url, 23);
@@ -16,7 +16,7 @@ $wm = substr($water_url, 23);;
 echo json_encode($wm);
 echo json_encode($img);
 
-$alpha = 40;
+$alpha = $_POST['water_opacity'];
 $posX = 150;
 $posY = 200;
 $img = WideImage::load($ground_url);
