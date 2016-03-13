@@ -68,20 +68,3 @@
 		};
 	});
 })();
-
-/*
-$.ajax({
-	url: '../server/php/merge.php',
-	type: 'POST',
-	data: 'water',
-})
-.done(function(ans) {
-	console.log("success");
-	console.log(ans);
-})
-.fail(function() {
-	console.log("error123");
-})
-.always(function() {
-	console.log("complete123");
-});*/
