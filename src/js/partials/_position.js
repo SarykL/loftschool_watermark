@@ -17,8 +17,8 @@
 		});
 		var positionX = $('.workspace__watermark').position().left;
 		var positionY = $('.workspace__watermark').position().top;
-		var mathPositionX = positionX ^ 0;
-		var mathPositionY = positionY ^ 0;
+		var mathPositionX = (positionX * dataSize.scaleBg) ^ 0;
+		var mathPositionY = (positionY * dataSize.scaleBg) ^ 0;
 		$('.coordinateX').val(mathPositionX);
 		$('.coordinateY').val(mathPositionY);
 	});
@@ -41,15 +41,15 @@
 	$('.coordinateX').spinner({
 
 		spin: function(event, ui){
-			var valuer = ui.value;
+			var valuer = ui.value / dataSize.scaleBg;
 
 			$('.workspace__watermark').css({
 				left: valuer + 'px'
 			});
 		},
 		change: function(event, ui){
-			var valuer = $('.coordinateX').val();
-			var maxWidth = $('.workspace__background').width() - $('.workspace__watermark').width();
+			var valuer = ui.value / dataSize.scaleBg;
+			// var maxWidth = $('.workspace__background').width() - $('.workspace__watermark').width();
 			// $('.coordinateX').attr('max', maxWidth);
 
 			$('.workspace__watermark').css({
@@ -57,7 +57,7 @@
 			});
 		},
 		stop: function(event, ui){
-			var valuer = $('.coordinateX').val();
+			var valuer = ui.value / dataSize.scaleBg;
 
 			$('.workspace__watermark').css({
 				left: valuer + 'px'
@@ -65,7 +65,7 @@
 		},
 
 		min: 0,
-		max: $('.workspace__background').width() - $('.workspace__watermark').width()
+		// max: $('.workspace__background').width() - $('.workspace__watermark').width()
 	});
 
 
@@ -73,7 +73,7 @@
 
 		$('.coordinateY').spinner({
 			spin: function(event, ui){
-				var valuer2 = ui.value;
+				var valuer2 = ui.value / dataSize.scaleBg;
 
 				$('.workspace__watermark').css({
 						top: valuer2 + 'px'
@@ -82,7 +82,7 @@
 			},
 
 			change: function(event, ui){
-				var valuer2 = $('.coordinateY').val();
+				var valuer2 = ui.value / dataSize.scaleBg;
 
 				$('.workspace__watermark').css({
 					top: valuer2 + 'px'
@@ -91,7 +91,7 @@
 			},
 
 			stop: function(event, ui){
-				var valuer2 = $('.coordinateY').val();
+				var valuer2 = ui.value / dataSize.scaleBg;
 
 				$('.workspace__watermark').css({
 					top: valuer2 + 'px'
@@ -118,15 +118,15 @@
 //------------ Input limit ---------------
 
 $('.coordinateX').keyup(function(e){
-    	var valCoordX = +$('.coordinateX').val();
-    	var maxWidth = $('.workspace__background').width() - $('.workspace__watermark').width();
+    	var valCoordX = +$('.coordinateX').val() * dataSize.scaleBg;
+    	var maxWidth = dataSize.originWidthBg - dataSize.originWidthWm;
     	if(valCoordX > maxWidth) $('.coordinateX').val(maxWidth);
 
 	});
 
 $('.coordinateY').keyup(function(e){
-    	var valCoordY = +$('.coordinateY').val();
-    	var maxHeight = $('.workspace__background').height() - $('.workspace__watermark').height();
+    	var valCoordY = +$('.coordinateY').val() * dataSize.scaleBg;
+    	var maxHeight = dataSize.originHeightBg - dataSize.originHeightWm;
     	if(valCoordY > maxHeight) $('.coordinateY').val(maxHeight);
 
 	});

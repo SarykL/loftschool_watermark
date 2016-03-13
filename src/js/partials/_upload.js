@@ -3,12 +3,16 @@
 var dataSize = {
 	canvasWidth: 650,
 	canvasHeight: 530,
-  originWidth: 0,
+  originWidthBg: 0,
+  originHeightBg: 0,
+  originWidthWm: 0,
+  originHeightWm: 0,
 	bgWidth: 0,
 	bgHeight: 0,
 	wmHeight: 0,
 	wmWidth: 0,
   scaleBg: 0,
+  scaleWm: 0,
 	scaleWidth: 0,
 	scaleHeight: 0
 
@@ -46,7 +50,8 @@ $.each( uploads, function( index, item ) {
 					img.attr('src', ground.url);
 					img.load(function(){
 						console.log(img.width() + ':' + img.height());
-            dataSize.originWidth = img.width();
+            dataSize.originWidthBg = img.width();
+            dataSize.originHeightBg = img.height();
 						dataSize.bgWidth = img.width();
 						dataSize.bgHeight = img.height();
 						console.log(dataSize);
@@ -93,7 +98,7 @@ $.each( uploads, function( index, item ) {
                 dataSize.bgHeight = dataSize.canvasHeight;
               }
             }
-            dataSize.scaleBg = dataSize.originWidth / dataSize.bgWidth;
+            dataSize.scaleBg = dataSize.originWidthBg / dataSize.bgWidth;
 
               img.css({
                 width: dataSize.bgWidth,
@@ -124,18 +129,11 @@ $.each( uploads, function( index, item ) {
 
 
 
+            dataSize.originWidthWm = img.width();
+            dataSize.originHeightWm = img.height();
             dataSize.wmWidth = img.width();
             dataSize.wmHeight = img.height();
-// var dataSize = {
-//   canvasWidth: 650,
-//   canvasHeight: 530,
-//   bgWidth: 0,
-//   bgHeight: 0,
-//   wmHeight: 0,
-//   wmWidth: 0,
-//   scaleWidth: 0,
-//   scaleHeight: 0
-// };
+
 
 
 
@@ -146,29 +144,30 @@ $.each( uploads, function( index, item ) {
 
 
 
-            // if(dataSize.wmWidth > dataSize.bgWidth || dataSize.wmHeight > dataSize.bgHeight){
+            if(dataSize.wmWidth > dataSize.bgWidth || dataSize.wmHeight > dataSize.bgHeight){
 
-            //   var wmRatio = dataSize.wmWidth / dataSize.wmHeight;
+              var bgwmRatio = dataSize.bgWidth / dataSize.bgHeight;
 
-            //   var bgRatio = dataSize.bgWidth / dataSize.bgHeight;
-            //   if(bgRatio < wmRatio){
+              var wmRatio = dataSize.wmWidth / dataSize.wmHeight;
 
+              if(bgwmRatio < wmRatio){
 
+                dataSize.wmWidth = dataSize.bgWidth;
+                dataSize.wmHeight = Math.round(dataSize.bgWidth / wmRatio);
 
+              }
+              else{
 
-            //   }
-            //   else{
+                dataSize.wmWidth = Math.round(dataSize.bgHeight * wmRatio);
+                dataSize.wmHeight = dataSize.bgHeight;
+              }
+            }
+            dataSize.scaleWm = dataSize.originWidthWm / dataSize.wmWidth;
 
-            //     dataSize.bgWidth = Math.round(dataSize.canvasHeight * bgRatio);
-            //     dataSize.bgHeight = dataSize.canvasHeight;
-            //   }
-            // }
-            // dataSize.scaleBg = dataSize.originWidth / dataSize.bgWidth;
-
-            //   img.css({
-            //     width: dataSize.bgWidth,
-            //     height: dataSize.bgHeight
-            //   });
+              img.css({
+                width: dataSize.wmWidth,
+                height: dataSize.wmHeight
+              });
 
 
 
@@ -196,14 +195,13 @@ $.each( uploads, function( index, item ) {
               // else
 
 
-
              //------------- Max position spinner-------------------
 
-             var heightSpinner = $('.workspace__background').height() - $('.workspace__watermark').height();
+             var heightSpinner = dataSize.originHeightBg - dataSize.originHeightWm;
 
               var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
 
-              var widthSpinner = $('.workspace__background').width() - $('.workspace__watermark').width();
+              var widthSpinner = dataSize.originWidthBg - dataSize.originWidthWm;
 
               var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
 
@@ -219,8 +217,8 @@ $.each( uploads, function( index, item ) {
 
 $('.download-btn').click(function() {
 	var waterOpacity = $('.workspace__watermark').css('opacity')*100,
-	    coordinateX = parseInt($('.workspace__watermark').css('left')),
-	    coordinateY = parseInt($('.workspace__watermark').css('top'));
+	    coordinateX = parseInt($('.workspace__watermark').css('left')) * dataSize.scaleBg,
+	    coordinateY = parseInt($('.workspace__watermark').css('top')) * dataSize.scaleBg;
     console.log(coordinateX);
     console.log(coordinateY);
 	console.log(waterOpacity);
