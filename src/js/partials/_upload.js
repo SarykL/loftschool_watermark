@@ -1,5 +1,7 @@
 // creates uploaded file name appearing in input
 /**/
+
+
 var dataSize = {
 	canvasWidth: 650,
 	canvasHeight: 530,
@@ -34,13 +36,28 @@ $( 'input[type="file"]' )
 var uploads = [ '#fileupload', '#watermark' ],
 	spaces = ['.workspace__background','.workspace__watermark'];
 $.each( uploads, function( index, item ) {
+
+				
+
+
 	if ( item == '#fileupload' ) {
 		$(item).fileupload({
-			dataType: 'json',
 			url: 'server/php/',
 			type: 'POST',
-			add: function( e, data ) {
-				data.submit();
+			add: function(e, data) {
+		        var uploadErrors = [];
+		        var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
+		        if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+		            uploadErrors.push('Файл не того формата');
+		        }
+		        if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 5000000) {
+		            uploadErrors.push('Файл слишком большой');
+		        }
+		        if(uploadErrors.length > 0) {
+		            alert(uploadErrors.join("\n"));
+		        } else {
+		            data.submit();
+		        }
 			},
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
@@ -114,9 +131,21 @@ $.each( uploads, function( index, item ) {
 				dataType: 'json',
 				url: 'server/php/',
 				type: 'POST',
-				add: function( e, data ) {
-					data.submit();
-				},
+			add: function(e, data) {
+		        var uploadErrors = [];
+		        var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
+		        if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+		            uploadErrors.push('Файл не того формата');
+		        }
+		        if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 5000000) {
+		            uploadErrors.push('Файл слишком большой');
+		        }
+		        if(uploadErrors.length > 0) {
+		            alert(uploadErrors.join("\n"));
+		        } else {
+		            data.submit();
+		        }
+			},
 				done: function( e, data ) {
 					water = data.result.files[ 0 ];
 					var img = $('<img></img>');
@@ -219,9 +248,6 @@ $('.download-btn').click(function() {
 	var waterOpacity = $('.workspace__watermark').css('opacity')*100,
 	    coordinateX = parseInt($('.workspace__watermark').css('left')) * dataSize.scaleBg,
 	    coordinateY = parseInt($('.workspace__watermark').css('top')) * dataSize.scaleBg;
-    console.log(coordinateX);
-    console.log(coordinateY);
-	console.log(waterOpacity);
 	$.ajax({
 		url: 'server/php/wide_merge.php',
 		type: 'POST',
