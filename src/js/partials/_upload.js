@@ -3,12 +3,14 @@
 var dataSize = {
 	canvasWidth: 650,
 	canvasHeight: 530,
+  originWidth: 0,
 	bgWidth: 0,
 	bgHeight: 0,
 	wmHeight: 0,
 	wmWidth: 0,
-	scaleWidth: 0, 
-	scaleHeight: 0 
+  scaleBg: 0,
+	scaleWidth: 0,
+	scaleHeight: 0
 
 };
 
@@ -44,35 +46,60 @@ $.each( uploads, function( index, item ) {
 					img.attr('src', ground.url);
 					img.load(function(){
 						console.log(img.width() + ':' + img.height());
+            dataSize.originWidth = img.width();
 						dataSize.bgWidth = img.width();
 						dataSize.bgHeight = img.height();
 						console.log(dataSize);
-						if (dataSize.bgWidth >= dataSize.canvasWidth & dataSize.bgWidth > dataSize.bgHeight) {
-							//  if widthbg> canvas &
-							img.css({
-								width: '100%',
-								height: 'auto'
-							});
-							
-						} else {
-						// if (dataSize.bgHeight >= dataSize.canvasHeight & dataSize.bgHeight > dataSize.bgWidth) {
-							img.css({
-								height: dataSize.canvasHeight + 'px',
-								width: 'auto'
-							});
-						}
-						if (dataSize.bgWidth < dataSize.canvasWidth & dataSize.bgWidth > dataSize.bgHeight) {
-							img.css({
-								width: dataSize.canvasWidth,
-								height: 'auto'
-							});
-						} 
-						else{
-							img.css({
-								height: dataSize.canvasHeight + 'px',
-								width: 'auto'
-							});
-						}
+						// if (dataSize.bgWidth >= dataSize.canvasWidth & dataSize.bgWidth > dataSize.bgHeight) {
+						// 	//  if widthbg> canvas &
+							// img.css({
+							// 	width: '100%',
+							// 	height: 'auto'
+							// });
+
+						// } else {
+						// // if (dataSize.bgHeight >= dataSize.canvasHeight & dataSize.bgHeight > dataSize.bgWidth) {
+						// 	img.css({
+						// 		height: dataSize.canvasHeight + 'px',
+						// 		width: 'auto'
+						// 	});
+						// }
+						// if (dataSize.bgWidth < dataSize.canvasWidth & dataSize.bgWidth > dataSize.bgHeight) {
+						// 	img.css({
+						// 		width: dataSize.canvasWidth,
+						// 		height: 'auto'
+						// 	});
+						// }
+						// else{
+						// 	img.css({
+						// 		height: dataSize.canvasHeight + 'px',
+						// 		width: 'auto'
+						// 	});
+						// }
+
+            if(dataSize.bgWidth > dataSize.canvasWidth || dataSize.bgHeight > dataSize.canvasHeight){
+
+              var canvasRatio = dataSize.canvasWidth / dataSize.canvasHeight;
+
+              var bgRatio = dataSize.bgWidth / dataSize.bgHeight;
+              if(canvasRatio < bgRatio){
+
+                dataSize.bgWidth = dataSize.canvasWidth;
+                dataSize.bgHeight = Math.round(dataSize.canvasWidth / bgRatio);
+
+              }else{
+
+                dataSize.bgWidth = Math.round(dataSize.canvasHeight * bgRatio);
+                dataSize.bgHeight = dataSize.canvasHeight;
+              }
+            }
+            dataSize.scaleBg = dataSize.originWidth / dataSize.bgWidth;
+
+              img.css({
+                width: dataSize.bgWidth,
+                height: dataSize.bgHeight
+              });
+
 					});
 				img.appendTo(spaces[0]);
 				}
@@ -87,39 +114,85 @@ $.each( uploads, function( index, item ) {
 				},
 				done: function( e, data ) {
 					water = data.result.files[ 0 ];
-					var img = $('<img></img>');						
+					var img = $('<img></img>');
 					img.attr('src', water.url);
-					img.load(function(){
-						console.log(img.width() + ':' + img.height());
-						dataSize.wmWidth = img.width();
-						dataSize.wmHeight = img.height();
-						console.log(dataSize);
-						dataSize.scaleWidth = dataSize.bgWidth/dataSize.wmWidth;
-						dataSize.scaleHeight = dataSize.bgHeight/dataSize.wmHeight;
-							img.css({
-							width: dataSize.wmWidth/dataSize.scaleWidth + 'px',
-							// height: dataSize.wmHeight/dataSize.scaleHeight + 'px'
-							height: 'auto'
-							});
-							// else
-
-
-
-						 //------------- Max position spinner-------------------
-
-						 var heightSpinner = $('.workspace__background').height() - $('.workspace__watermark').height();
-
-							var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
-
-							var widthSpinner = $('.workspace__background').width() - $('.workspace__watermark').width();
-
-							var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
-
-							maxY.spinner();
-							maxX.spinner();
-							//------------- End max position spinner-------------------
-				 	});
 					img.appendTo(spaces[1]);
+          img.load(function(){
+            console.log(img.width() + ':' + img.height());
+
+
+
+
+
+            dataSize.wmWidth = img.width();
+            dataSize.wmHeight = img.height();
+// var dataSize = {
+//   canvasWidth: 650,
+//   canvasHeight: 530,
+//   bgWidth: 0,
+//   bgHeight: 0,
+//   wmHeight: 0,
+//   wmWidth: 0,
+//   scaleWidth: 0,
+//   scaleHeight: 0
+
+// };
+            if(dataSize.scaleBg !== 1){
+              dataSize.wmWidth = Math.round(dataSize.wmWidth / dataSize.scaleBg);
+              dataSize.wmHeight = Math.round(dataSize.wmHeight / dataSize.scaleBg);
+            }
+
+
+
+
+            if(dataSize.wmWidth > dataSize.bgWidth || dataSize.wmHeight > dataSize.bgHeight){
+
+              bgRatio = dataSize.bgWidth / dataSize.bgHeight;
+              wmRatio = dataSize.wmWidth / dataSize.wmHeight;
+              if(bgRatio < wmRatio){
+
+              }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            console.log(dataSize);
+
+            // dataSize.scaleWidth = dataSize.bgWidth/dataSize.wmWidth;
+            // dataSize.scaleHeight = dataSize.bgHeight/dataSize.wmHeight;
+              img.css({
+              // width: dataSize.wmWidth/dataSize.scaleWidth + 'px',
+              // height: dataSize.wmHeight/dataSize.scaleHeight + 'px'
+              height: 'auto'
+              });
+              // else
+
+
+
+             //------------- Max position spinner-------------------
+
+             var heightSpinner = $('.workspace__background').height() - $('.workspace__watermark').height();
+
+              var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
+
+              var widthSpinner = $('.workspace__background').width() - $('.workspace__watermark').width();
+
+              var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
+
+              maxY.spinner();
+              maxX.spinner();
+              //------------- End max position spinner-------------------
+          });
 				}
 			});
 	}
