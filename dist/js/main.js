@@ -1,3 +1,24 @@
+;$(document).ready(function(){
+    var op_value,
+        def_value;
+    $( ".sidebar-slider__block-destiny" ).slider({
+      range: "min",
+      value: 0.3,
+      min: 0,
+      max: 1,
+      step: 0.01,
+      create: function(event, ui) {
+        def_value = 1 - $(this).slider( "values", 0 );
+        $('.workspace__watermark').css({ opacity : def_value });
+      },
+      slide: function(event, ui) {
+        op_value = 1 - $(this).slider( "values", 0 );
+        $('.workspace__watermark').css({ opacity : op_value });
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range-min" ).slider( "value" ) );
+});
+
 // creates uploaded file name appearing in input
 /**/
 var dataSize = {
@@ -256,4 +277,224 @@ $('.download-btn').click(function() {
 		console.log("complete");
 		document.location.href="server/php/down.php?period=week&action=CSV"
 	});
+});
+
+;$(document).ready(function(){
+  $('.workspace__watermark').draggable({
+        drag: function(event, ui){
+          $('.coordinateX').val((ui.position.left) ^ 0);
+          $('.coordinateY').val((ui.position.top) ^ 0);
+        },
+        cursor: "move",
+        containment: "parent"
+
+    }).filter('.workspace__background');
+
+});
+
+//----------- Position block -------------
+
+;$(document).ready(function(){
+	$('.sidebar-position__link').on('click', function(e){
+		e.preventDefault();
+
+		var aTTr = $(this).attr('data-position');
+
+		$('.sidebar-position__link').removeClass('sidebar-position__link--active');
+		$(this).addClass('sidebar-position__link--active');
+
+		$('.workspace__watermark').position({
+			my: aTTr,
+			at: aTTr,
+			of: '.workspace__background',
+			collision: 'none',
+		});
+		var positionX = $('.workspace__watermark').position().left;
+		var positionY = $('.workspace__watermark').position().top;
+		var mathPositionX = (positionX) ^ 0;
+		var mathPositionY = (positionY) ^ 0;
+		$('.coordinateX').val(mathPositionX);
+		$('.coordinateY').val(mathPositionY);
+	});
+
+
+//--------------- Spinner ---------------
+
+	$('.coordinateX').spinner({
+
+		spin: function(event, ui){
+			var valuer = ui.value;
+
+			$('.workspace__watermark').css({
+				left: valuer + 'px'
+			});
+		},
+		change: function(event, ui){
+			var valuer = $('.coordinateX').val();
+			$('.workspace__watermark').css({
+				left: valuer + 'px'
+			});
+		},
+		stop: function(event, ui){
+			var valuer = $('.coordinateX').val();
+
+			$('.workspace__watermark').css({
+				left: valuer + 'px'
+			});
+		},
+
+		min: 0
+	});
+
+
+
+
+		$('.coordinateY').spinner({
+			spin: function(event, ui){
+				var valuerTop = ui.value;
+
+				$('.workspace__watermark').css({
+						top: valuerTop + 'px'
+					});
+
+			},
+
+			change: function(event, ui){
+				var valuerTop = $('.coordinateY').val();
+				$('.workspace__watermark').css({
+					top: valuerTop + 'px'
+				});
+
+			},
+
+			stop: function(event, ui){
+				var valuerTop = $('.coordinateY').val();
+
+				$('.workspace__watermark').css({
+					top: valuerTop + 'px'
+				});
+			},
+
+			min: 0,
+		});
+
+
+
+
+//---------- Numeric entry in input only -------------
+
+	$('.position-input').bind("change keyup input click", function() {
+	    if (this.value.match(/[^0-9]/g)) {
+	        this.value = this.value.replace(/[^0-9]/g, '');
+	    }
+	});
+
+
+});
+
+//------------ Input limit ---------------
+
+$('.coordinateX').keyup(function(e){
+    	var valCoordX = +$('.coordinateX').val();
+    	var maxWidth = dataSize.bgWidth - dataSize.wmWidth;
+    	if(valCoordX > maxWidth) $('.coordinateX').val(maxWidth);
+
+	});
+
+$('.coordinateY').keyup(function(e){
+    	var valCoordY = +$('.coordinateY').val();
+    	var maxHeight = dataSize.bgHeight - dataSize.wmHeight;
+    	if(valCoordY > maxHeight) $('.coordinateY').val(maxHeight);
+
+	});
+
+/* //= partials/_disable.js */
+
+;$(document).ready(function () {
+	$('.reset-btn').on('click', function (e) {
+		e.preventDefault();
+		$('.sidebar-slider__block-destiny').slider('option', 'value', 0.3);
+		$('.workspace__watermark').css({ opacity : 0.66666666 });
+
+		$('.workspace__watermark').css({left : 0});
+		$('.workspace__watermark').css({top : 0});
+		$('.position-input').spinner('value', 0);
+		$('.sidebar-position__link').removeClass('sidebar-position__link--active');
+		$('.top-left').addClass('sidebar-position__link--active');
+		
+	});
+	
+});
+
+//------------ Change language ------------
+
+
+;$(document).ready(function(){
+  var LANGUAGE;
+  $.redrawLanguage = function (lang) {
+    $.ajax({
+      url : 'js/json/' + lang + '.json',
+      dataType : 'json',
+      success : function (response) {
+        LANGUAGE = response;
+        $('body').find("[data-translate]").each(function (){
+
+          var lng = LANGUAGE[ $(this).attr('data-translate') ];
+          var tag = $(this)[0].tagName.toLowerCase();
+          switch (tag) //узнаем название тега
+          {
+          case "input":
+          $(this).val(lng);
+          break;
+          default:
+          $(this).html(lng);
+          break;
+          }
+        });
+      }
+    });
+  }
+
+  $('.language__link--eng').on('click', function(e){
+    e.preventDefault();
+    $.redrawLanguage('eng');
+  });
+
+  $('.language__link--ru').on('click', function(e){
+    e.preventDefault();
+    $.redrawLanguage('ru')
+  });
+});
+
+;$(document).ready(function () {
+	var fb = $('#fb_link'),
+		tw = $('#tw_link'),
+		vk = $('#vk_link'),
+
+		sharePopupWidth = 630,
+		sharePopupHeight = 430,
+
+		title = document.title,
+		location = window.location.href;
+
+	fb.on('click', function () {
+		var url = 'https://www.facebook.com/sharer/sharer.php?u=';
+		url += encodeURIComponent(location);
+		window.open(url, '','width=' + sharePopupWidth + ',height=' + sharePopupHeight);
+	});
+
+	tw.on('click', function () {
+		var  url = 'http://twitter.com/share?';
+		url += 'text=' + title;
+		url += '&url=' + location;
+		window.open(url, '','width=' + sharePopupWidth + ',height=' + sharePopupHeight);
+	});
+	vk.on('click', function () {
+		var  url = 'https://vk.com/share.php?';
+		url += '&title=' + title;
+		url += 'url=' + location;
+		url += '&noparse=true';
+		window.open(url, '','width=' + sharePopupWidth + ',height=' + sharePopupHeight);
+	});
+
 });

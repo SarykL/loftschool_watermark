@@ -1,4 +1,5 @@
 .wrapper-position{
+	position: relative;
 	&:first-child{
 		margin-bottom: 10px;
 	}
@@ -124,6 +125,22 @@
 	bottom: 10px;
 }
 
+.sidebar-position__coordinate-label-top:before {
+	content: "";
+	@include sprite($pointer-top);
+	position: absolute;
+	left: -27px;
+	bottom: 5px;
+}
+
+.sidebar-position__coordinate-label-left:before {
+	content: "";
+	@include sprite($pointer-left);
+	position: absolute;
+	left: -35px;
+	bottom: 18px;
+}
+
 .sidebar-position__coordinate-labelY:before {
 	content: "Y";
 	position: absolute;
@@ -153,4 +170,20 @@
 	}
 }
 
+// .single{
+// 	display: none;
+// }
 
+// .tiling-square{
+// 	position: relative;
+// 	&__vertical{
+// 		height: 10px;
+// 		background-color: red;
+// 		border: 1px solid #000;
+// 		overflow: hidden;
+// 		position: absolute;
+// 		top: 50%;
+// 		width: 100%;
+
+// 	}
+// }
