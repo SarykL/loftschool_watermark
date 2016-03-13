@@ -41,7 +41,7 @@ $.each( uploads, function( index, item ) {
 			type: 'POST',
 			add: function( e, data ) {
 
-        if($('.workspace__background').find('img').length){
+        if($('.workspace__background').find('img')){
             $('.workspace__background').find('img').remove();
         }
 
@@ -49,7 +49,8 @@ $.each( uploads, function( index, item ) {
 			},
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
-				var img = $('<img></img>').css({
+				var img = $('<img></img>')
+        img.css({
 						position: 'static',
             verticalAlign: 'middle'
 					});
@@ -134,6 +135,9 @@ $.each( uploads, function( index, item ) {
 				done: function( e, data ) {
 					water = data.result.files[ 0 ];
 					var img = $('<img></img>');
+          img.css({
+            verticalAlign: 'middle'
+          });
 					img.attr('src', water.url);
 					img.appendTo(spaces[1]);
           img.load(function(){
