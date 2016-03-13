@@ -84,12 +84,12 @@ gulp.task('style:build', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['src/style/'],
-            outputStyle: 'expanded',             // 'compact', 'nested', 'expanded', 'compressed'
+            outputStyle: 'compressed',             // 'compact', 'nested', 'expanded', 'compressed'
             sourceMap: true,
             errLogToConsole: true
         }))
-        .pipe(prefixer({browsers:['>1%']}))
-        //.pipe(cssmin())
+        .pipe(prefixer({browsers:['> 5%', 'last 5 versions']}))
+        .pipe(cssmin())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
