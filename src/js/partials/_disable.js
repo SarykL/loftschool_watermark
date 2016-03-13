@@ -5,12 +5,12 @@
 	$('.sidebar-buttons__buttons-row_disable').show();
 
 	$('#fileupload').on('change', function () {
-		$('.watermark__section_disable').hide();		
+		$('.watermark__section_disable').hide();
 	});
 
 	$('#watermark').on('change', function () {
 		$('.sidebar-slider__block_disable').hide();
 		$('.sidebar-position_disable').hide();
-		$('.sidebar-buttons__buttons-row_disable').hide();		
+		$('.sidebar-buttons__buttons-row_disable').hide();
 	});
 });

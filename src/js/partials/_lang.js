@@ -1,6 +1,5 @@
 //------------ Change language ------------
 
-
 ;$(document).ready(function(){
 	var LANGUAGE;
 	$.redrawLanguage = function (lang) {

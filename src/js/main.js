@@ -6,7 +6,7 @@
 
 //= partials/_position.js
 
-/* //= partials/_disable.js */
+//= partials/_disable.js
 
 //= partials/_reset.js
 
