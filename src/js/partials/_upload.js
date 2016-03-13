@@ -49,7 +49,7 @@ $.each( uploads, function( index, item ) {
 			},
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
-				var img = $('<img></img>')
+				var img = $('<img></img>');
         img.css({
 						position: 'static',
             verticalAlign: 'middle'
@@ -129,6 +129,11 @@ $.each( uploads, function( index, item ) {
               $('.position-input').spinner('value', 0);
               $('.sidebar-position__link').removeClass('sidebar-position__link--active');
           }
+          $('#fileupload').on('change', function () {
+            $('.workspace__watermark').css({left : 0});
+            $('.workspace__watermark').css({top : 0});
+            $('.position-input').spinner('value', 0);
+          });
 
 					data.submit();
 				},
