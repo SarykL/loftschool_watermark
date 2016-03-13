@@ -25,8 +25,4 @@ $new = $img->merge($watermark, $posX, $posY, $alpha);
 $new->saveToFile('image.jpg');
 
 
-//header('Content-Type: application/octet-stream'); 
-//header('Content-Disposition: attachment; filename="image.jpg"');
-
-
 ?>
