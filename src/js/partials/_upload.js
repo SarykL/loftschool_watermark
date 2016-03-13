@@ -40,6 +40,11 @@ $.each( uploads, function( index, item ) {
 			url: 'server/php/',
 			type: 'POST',
 			add: function( e, data ) {
+
+        if($('.workspace__background').find('img').length){
+            $('.workspace__background').find('img').remove();
+        }
+
 				data.submit();
 			},
 			done: function( e, data ) {
@@ -115,6 +120,14 @@ $.each( uploads, function( index, item ) {
 				url: 'server/php/',
 				type: 'POST',
 				add: function( e, data ) {
+          if($('.workspace__watermark').find('img').length){
+              $('.workspace__watermark').find('img').remove();
+              $('.workspace__watermark').css({left : 0});
+              $('.workspace__watermark').css({top : 0});
+              $('.position-input').spinner('value', 0);
+              $('.sidebar-position__link').removeClass('sidebar-position__link--active');
+          }
+
 					data.submit();
 				},
 				done: function( e, data ) {

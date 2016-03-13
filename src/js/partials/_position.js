@@ -24,18 +24,6 @@
 	});
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //--------------- Spinner ---------------
 
 	$('.coordinateX').spinner({
@@ -48,7 +36,7 @@
 			});
 		},
 		change: function(event, ui){
-			var valuer = ui.value / dataSize.scaleBg;
+			var valuer = $('.coordinateX').val() * dataSize.scaleBg;
 			// var maxWidth = $('.workspace__background').width() - $('.workspace__watermark').width();
 			// $('.coordinateX').attr('max', maxWidth);
 
@@ -57,7 +45,7 @@
 			});
 		},
 		stop: function(event, ui){
-			var valuer = ui.value / dataSize.scaleBg;
+			var valuer = $('.coordinateX').val() / dataSize.scaleBg;
 
 			$('.workspace__watermark').css({
 				left: valuer + 'px'
@@ -118,8 +106,11 @@
 //------------ Input limit ---------------
 
 $('.coordinateX').keyup(function(e){
-    	var valCoordX = +$('.coordinateX').val() * dataSize.scaleBg;
+    	var valCoordX = +$('.coordinateX').val();
     	var maxWidth = dataSize.originWidthBg - dataSize.originWidthWm;
+    	$('.workspace__watermark').css({
+					left: valCoordX / dataSize.scaleBg + 'px'
+				});
     	if(valCoordX > maxWidth) $('.coordinateX').val(maxWidth);
 
 	});
@@ -127,6 +118,9 @@ $('.coordinateX').keyup(function(e){
 $('.coordinateY').keyup(function(e){
     	var valCoordY = +$('.coordinateY').val() * dataSize.scaleBg;
     	var maxHeight = dataSize.originHeightBg - dataSize.originHeightWm;
+    	$('.workspace__watermark').css({
+					top: valCoordY / dataSize.scaleBg + 'px'
+				});
     	if(valCoordY > maxHeight) $('.coordinateY').val(maxHeight);
 
 	});
