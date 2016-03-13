@@ -50,7 +50,8 @@ $.each( uploads, function( index, item ) {
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
 				var img = $('<img></img>').css({
-						position: 'static'
+						position: 'static',
+            verticalAlign: 'middle'
 					});
 					img.attr('src', ground.url);
 					img.load(function(){

@@ -61,12 +61,18 @@ $.each( uploads, function( index, item ) {
 			url: 'server/php/',
 			type: 'POST',
 			add: function( e, data ) {
+
+        if($('.workspace__background').find('img').length){
+            $('.workspace__background').find('img').remove();
+        }
+
 				data.submit();
 			},
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
 				var img = $('<img></img>').css({
-						position: 'static'
+						position: 'static',
+            verticalAlign: 'middle'
 					});
 					img.attr('src', ground.url);
 					img.load(function(){
@@ -136,6 +142,14 @@ $.each( uploads, function( index, item ) {
 				url: 'server/php/',
 				type: 'POST',
 				add: function( e, data ) {
+          if($('.workspace__watermark').find('img').length){
+              $('.workspace__watermark').find('img').remove();
+              $('.workspace__watermark').css({left : 0});
+              $('.workspace__watermark').css({top : 0});
+              $('.position-input').spinner('value', 0);
+              $('.sidebar-position__link').removeClass('sidebar-position__link--active');
+          }
+
 					data.submit();
 				},
 				done: function( e, data ) {
@@ -218,11 +232,11 @@ $.each( uploads, function( index, item ) {
 
              //------------- Max position spinner-------------------
 
-             var heightSpinner = dataSize.originHeightBg - dataSize.originHeightWm;
+             var heightSpinner = dataSize.bgHeight - dataSize.wmHeight;
 
               var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
 
-              var widthSpinner = dataSize.originWidthBg - dataSize.originWidthWm;
+              var widthSpinner = dataSize.bgWidth - dataSize.wmWidth;
 
               var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
 
@@ -264,8 +278,8 @@ $('.download-btn').click(function() {
 ;$(document).ready(function(){
   $('.workspace__watermark').draggable({
         drag: function(event, ui){
-          $('.coordinateX').val((ui.position.left * dataSize.scaleBg) ^ 0);
-          $('.coordinateY').val((ui.position.top * dataSize.scaleBg) ^ 0);
+          $('.coordinateX').val((ui.position.left) ^ 0);
+          $('.coordinateY').val((ui.position.top) ^ 0);
         },
         cursor: "move",
         containment: "parent"
@@ -293,23 +307,11 @@ $('.download-btn').click(function() {
 		});
 		var positionX = $('.workspace__watermark').position().left;
 		var positionY = $('.workspace__watermark').position().top;
-		var mathPositionX = (positionX * dataSize.scaleBg) ^ 0;
-		var mathPositionY = (positionY * dataSize.scaleBg) ^ 0;
+		var mathPositionX = (positionX) ^ 0;
+		var mathPositionY = (positionY) ^ 0;
 		$('.coordinateX').val(mathPositionX);
 		$('.coordinateY').val(mathPositionY);
 	});
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //--------------- Spinner ---------------
@@ -317,31 +319,27 @@ $('.download-btn').click(function() {
 	$('.coordinateX').spinner({
 
 		spin: function(event, ui){
-			var valuer = ui.value / dataSize.scaleBg;
+			var valuer = ui.value;
 
 			$('.workspace__watermark').css({
 				left: valuer + 'px'
 			});
 		},
 		change: function(event, ui){
-			var valuer = ui.value / dataSize.scaleBg;
-			// var maxWidth = $('.workspace__background').width() - $('.workspace__watermark').width();
-			// $('.coordinateX').attr('max', maxWidth);
-
+			var valuer = $('.coordinateX').val();
 			$('.workspace__watermark').css({
 				left: valuer + 'px'
 			});
 		},
 		stop: function(event, ui){
-			var valuer = ui.value / dataSize.scaleBg;
+			var valuer = $('.coordinateX').val();
 
 			$('.workspace__watermark').css({
 				left: valuer + 'px'
 			});
 		},
 
-		min: 0,
-		// max: $('.workspace__background').width() - $('.workspace__watermark').width()
+		min: 0
 	});
 
 
@@ -349,28 +347,27 @@ $('.download-btn').click(function() {
 
 		$('.coordinateY').spinner({
 			spin: function(event, ui){
-				var valuer2 = ui.value / dataSize.scaleBg;
+				var valuerTop = ui.value;
 
 				$('.workspace__watermark').css({
-						top: valuer2 + 'px'
+						top: valuerTop + 'px'
 					});
 
 			},
 
 			change: function(event, ui){
-				var valuer2 = ui.value / dataSize.scaleBg;
-
+				var valuerTop = $('.coordinateY').val();
 				$('.workspace__watermark').css({
-					top: valuer2 + 'px'
+					top: valuerTop + 'px'
 				});
 
 			},
 
 			stop: function(event, ui){
-				var valuer2 = ui.value / dataSize.scaleBg;
+				var valuerTop = $('.coordinateY').val();
 
 				$('.workspace__watermark').css({
-					top: valuer2 + 'px'
+					top: valuerTop + 'px'
 				});
 			},
 
@@ -394,15 +391,15 @@ $('.download-btn').click(function() {
 //------------ Input limit ---------------
 
 $('.coordinateX').keyup(function(e){
-    	var valCoordX = +$('.coordinateX').val() * dataSize.scaleBg;
-    	var maxWidth = dataSize.originWidthBg - dataSize.originWidthWm;
+    	var valCoordX = +$('.coordinateX').val();
+    	var maxWidth = dataSize.bgWidth - dataSize.wmWidth;
     	if(valCoordX > maxWidth) $('.coordinateX').val(maxWidth);
 
 	});
 
 $('.coordinateY').keyup(function(e){
-    	var valCoordY = +$('.coordinateY').val() * dataSize.scaleBg;
-    	var maxHeight = dataSize.originHeightBg - dataSize.originHeightWm;
+    	var valCoordY = +$('.coordinateY').val();
+    	var maxHeight = dataSize.bgHeight - dataSize.wmHeight;
     	if(valCoordY > maxHeight) $('.coordinateY').val(maxHeight);
 
 	});
