@@ -129,6 +129,11 @@ $.each( uploads, function( index, item ) {
               $('.position-input').spinner('value', 0);
               $('.sidebar-position__link').removeClass('sidebar-position__link--active');
           }
+          $('#fileupload').on('change', function () {
+            $('.workspace__watermark').css({left : 0});
+            $('.workspace__watermark').css({top : 0});
+            $('.position-input').spinner('value', 0);
+          });
 
 					data.submit();
 				},
