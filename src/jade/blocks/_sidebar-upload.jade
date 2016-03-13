@@ -1,0 +1,23 @@
+.inputs
+	form(id="fileuploads" action="js/libs/upload/server/php/" method="POST" enctype="multipart/form-data")
+		.picture__section
+			span.picture__section-name(data-translate="originalImage")
+				|Исходное изображение
+			span.fake__input
+				span.fake__placeholder.no-use(data-translate="downloadImage")
+					|Загрузите изображение
+			label(for="fileupload", class="").fileupload__label
+				input(type="file", id="fileupload", name="files[]").fileupload__input-img
+			span.error_message(data-translate="formatError")
+				| Файл не того формата!
+		.watermark__section
+			.watermark__section_disable
+			span.watermark__section-name(data-translate="watermark")
+				|Водяной знак
+			span.fake__input
+				span.fake__placeholder.no-use(data-translate="downloadImage")
+					|Загрузите изображение
+			label(for="watermark", class="").fileupload__label
+				input(type="file", id="watermark", name="files[]").fileupload__input-watermark
+			span.error_message(data-translate="formatError")
+				| Файл не того формата!

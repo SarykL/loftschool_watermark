@@ -1,0 +1,9 @@
+//= upload/js/vendor/jquery.ui.widget.js
+//= upload/js/jquery.iframe-transport.js
+//= upload/js/jquery.fileupload.js
+//= upload/js/jquery.fileupload-process.js
+//= upload/js/jquery.fileupload-image.js
+//= upload/js/jquery.fileupload-audio.js
+//= upload/js/jquery.fileupload-video.js
+//= upload/js/jquery.fileupload-validate.js
+//= upload/js/jquery.fileupload-ui.js

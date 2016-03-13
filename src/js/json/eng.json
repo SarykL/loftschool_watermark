@@ -1,0 +1,13 @@
+{
+  "watermarkGenerator": "Watermarks generator",
+  "settings": "Settings",
+  "originalImage": "Original image",
+  "downloadImage": "Download image",
+  "watermark": "Watermark",
+  "place": "Place",
+  "transparency": "Transparency",
+  "resetEng": "Reset",
+  "downloadEng": "Download",
+  "footerEng": "© 2016, This is my website , please do not copy or steal it",
+  "formatError": "The file format is wrong !"
+}

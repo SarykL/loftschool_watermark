@@ -1,0 +1,34 @@
+.sidebar-position
+	.sidebar-position_disable
+	h3.sidebar-position-title(data-translate="place") Положение
+	.sidebar-position__mode-switcher
+		.single-mode
+		.tiling-mode
+	.sidebar-position-content.single
+		.sidebar-position-square
+			ul.sidebar-position-list
+				li.sidebar-position__item
+					a(href="#" data-position="left top").sidebar-position__link.top-left
+				li.sidebar-position__item
+					a(href="#" data-position="center top").sidebar-position__link.top-center
+				li.sidebar-position__item
+					a(href="#" data-position="right top").sidebar-position__link.top-right
+				li.sidebar-position__item
+					a(href="#" data-position="left center").sidebar-position__link.middle-left
+				li.sidebar-position__item
+					a(href="#" data-position="center center").sidebar-position__link.middle-center
+				li.sidebar-position__item
+					a(href="#" data-position="right center").sidebar-position__link.middle-right
+				li.sidebar-position__item
+					a(href="#" data-position="left bottom").sidebar-position__link.bottom-left
+				li.sidebar-position__item
+					a(href="#" data-position="center bottom").sidebar-position__link.bottom-center
+				li.sidebar-position__item
+					a(href="#" data-position="right bottom").sidebar-position__link.bottom-right
+		.sidebar-position-coordinates
+			.wrapper-position
+				label.sidebar-position__coordinate-labelX
+					input(type="text" value="0").position-input.coordinateX
+			.wrapper-position
+				label.sidebar-position__coordinate-labelY
+					input(type="text" value="0").position-input.coordinateY
