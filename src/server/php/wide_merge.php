@@ -17,12 +17,16 @@ echo json_encode($wm);
 echo json_encode($img);
 
 $alpha = $_POST['water_opacity'];
-$posX = 150;
-$posY = 200;
+$posX = $_POST['posX'];;
+$posY = $_POST['posY'];;
 $img = WideImage::load($ground_url);
 $watermark = WideImage::load($water_url);
 $new = $img->merge($watermark, $posX, $posY, $alpha);
 $new->saveToFile('image.jpg');
+
+
+//header('Content-Type: application/octet-stream'); 
+//header('Content-Disposition: attachment; filename="image.jpg"');
 
 
 ?>

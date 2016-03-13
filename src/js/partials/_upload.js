@@ -117,7 +117,6 @@ $.each( uploads, function( index, item ) {
 
 							maxY.spinner();
 							maxX.spinner();
-
 							//------------- End max position spinner-------------------
 				 	});
 					img.appendTo(spaces[1]);
@@ -128,13 +127,16 @@ $.each( uploads, function( index, item ) {
 
 
 $('.download-btn').click(function() {
-	waterOpacity = $('.workspace__watermark').css('opacity')*100;
-
+	var waterOpacity = $('.workspace__watermark').css('opacity')*100,
+	    coordinateX = parseInt($('.workspace__watermark').css('left')),
+	    coordinateY = parseInt($('.workspace__watermark').css('top'));
+    console.log(coordinateX);
+    console.log(coordinateY);
 	console.log(waterOpacity);
 	$.ajax({
 		url: 'server/php/wide_merge.php',
 		type: 'POST',
-		data: {"water_url":water.url, "ground_url":ground.url, "water_opacity":waterOpacity},
+		data: {"water_url":water.url, "ground_url":ground.url, "water_opacity":waterOpacity, "posX":coordinateX, "posY":coordinateY},
 	})
 	.done(function(ans) {
 		console.log("success");
@@ -145,5 +147,5 @@ $('.download-btn').click(function() {
 	})
 	.always(function() {
 		console.log("complete");
-	});	
+	});
 });
