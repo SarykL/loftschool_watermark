@@ -49,7 +49,7 @@ $.each( uploads, function( index, item ) {
 			},
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
-				var img = $('<img></img>')
+				var img = $('<img></img>');
         img.css({
 						position: 'static',
             verticalAlign: 'middle'
