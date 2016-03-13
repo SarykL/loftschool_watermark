@@ -1,0 +1,96 @@
+.menu {
+	// float: left;
+	position: fixed;
+	top: 105px;
+	left: 0;
+	// margin-right: 40px;
+}
+
+//----------Language block -----------
+
+.language{
+	margin-bottom: 20px;
+	font-size: 0;
+	&__list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	}
+	&__link{
+	display: block;
+	width: 45px;
+	text-decoration: none;
+	color: #8e9298;
+	background: #d7d5d7;
+	padding: 0 5px;
+	font-size: 20px;
+	line-height: 35px;
+	box-sizing: border-box;
+	font-family: $font-family-light;
+	margin-bottom: 1px;
+	&:hover{
+		color: #d7d5d7;
+		background: #8e9298;
+	}
+	}
+}
+
+//---------- Social block ------------
+
+.social{
+	&__list{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 0;
+	position: relative;
+	left: -40px;
+	transition: left 1s;
+	width: 40px;
+	display: inline-block;
+	vertical-align: middle;
+	&:hover{
+		left: 0;
+	}
+	}
+	&__item{
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: #d7d5d7;
+	text-align: center;
+	&--like{
+	width: 45px;
+		position: absolute;
+		left: 40px;
+	}
+	}
+	&__link{
+	display: inline-block;
+	vertical-align: middle;
+	&--like{
+		@include sprite($like);
+		&:hover{
+		@include sprite($like-h);
+		}
+	}
+	&--fb{
+		@include sprite($fb);
+		&:hover{
+		@include sprite($fb-h);
+		}
+	}
+	&--tw{
+		@include sprite($tw);
+		&:hover{
+		@include sprite($tw-h);
+		}
+	}
+	&--vk{
+		@include sprite($vk);
+		&:hover{
+		@include sprite($vk-h);
+		}
+	}
+	}
+}

@@ -4,9 +4,15 @@
 @import
 	'config/grid',
 	'config/mixins',
-	'config/variables';
+	'config/variables',
+	'config/sprite';
+// 2. Vendors
 
-// 2. Base stuff
+@import
+	'vendors/framework',
+	'vendors/jquery-ui';
+
+// 3. Base stuff
 
 @import
 	'base/base',
@@ -14,17 +20,20 @@
 	'base/normalize',
 	'base/typography';
 
-// 3. Layout
+// 4. Layout
 
 @import
-	'layout/header';
+	'layout/header',
+	'layout/footer',
+	'layout/main-section';
 
-// 4. Components
+// 5. Components
 
 @import
+	'components/sidebar_position',
+	'components/sidebar_inputs',
+	'components/menu',
+	'components/sidebar',
+	'components/slider',
+	'components/spinner',
 	'components/buttons';
-
-// 5. Vendors
-
-@import
-	'vendors/framework';

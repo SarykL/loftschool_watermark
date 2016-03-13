@@ -1,0 +1,46 @@
+//---------- Main block ------------
+
+.main-section {
+	@extend .container;
+	margin-top: 60px;
+	@include clearfix;
+}
+
+.workspace{
+	padding: 15px 25px 25px 25px;
+	background-color: rgba(46, 54, 65, .54);
+	width: 700px;
+	float: left;
+	position: relative;
+	&__title{
+		font-size: 36px;
+		margin: 0;
+		color: #fff;
+		margin-bottom: 50px;
+		font-family: $font-family-light;
+		font-weight: 300;
+	}
+	&__unit{
+		width: 650px;
+		height: 530px;
+		background: url('/img/bg-mini.png');
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__square{
+		background: #ccc;
+		display: inline-block;
+	}
+	&__background{
+		position: relative;
+	}
+	&__watermark{
+		position: absolute;
+	}
+}
+
+
+

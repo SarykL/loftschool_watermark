@@ -1,0 +1,26 @@
+.menu
+	//-------- Language block ------------
+
+	.language
+		- var lang = [['#', 'ru', 'РУС'], ['#', 'eng', 'ENG']]
+		ul.language__list
+			each item in lang
+				li.language__item
+					if item[1] === 'rus'
+						a(href='#{item[0]}' class='language__link language__link--#{item[1]} language__link--active')= item[2]
+					else
+						a(href='#{item[0]}' class='language__link language__link--#{item[1]}')= item[2]
+
+	//------------Social block ------------
+
+	.social
+		-
+			var social = [
+						['#', 'like', 'Like'],
+						['https://www.facebook.com/', 'fb', 'Facebook'],
+						['http://vk.com/', 'vk', 'Вконтакте'],
+						['https://twitter.com/', 'tw', 'Twitter']]
+		ul.social__list
+			each item in social
+				li(class='social__item social__item--#{item[1]}')
+					a(href="#{item[0]}" class="social__link social__link--#{item[1]}" target="_blank" id="#{item[1]}" + "_link").social__link= item[2]

@@ -22,20 +22,25 @@ var path = {
         css: 'dist/css/',
         img: 'dist/img/',
         fonts: 'dist/fonts/',
-        js: 'dist/js/'
+        js: 'dist/js/',
+        php: 'dist/server/',
+        json: 'dist/js/json/'
     },
     src: {
         jade: 'src/jade/*.jade',
         style: 'src/style/main.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
-        js: 'src/js/*.js'
+        js: 'src/js/*.js',
+        php: 'src/server/**/*.*',
+        json: 'src/js/json/*.json'
     },
     watch: {
         jade: 'src/**/*.jade',
         style: 'src/style/**/*.scss',
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*',
+        php: 'src/server/**/*.*',
         js: 'src/js/**/*.*'
 
     },
@@ -63,7 +68,7 @@ gulp.task('webserver', function () {
 // Build HTML
 
 gulp.task('jade:build', function () {
-    gulp.src(path.src.jade) 
+    gulp.src(path.src.jade)
         .pipe(jade({
             pretty: '\t',
         }))
@@ -75,7 +80,7 @@ gulp.task('jade:build', function () {
 // Build Stylesheets
 
 gulp.task('style:build', function () {
-    gulp.src(path.src.style) 
+    gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['src/style/'],
@@ -109,7 +114,7 @@ gulp.task('sprite', function () {
 // Image Optimisation
 
 gulp.task('image:build', function () {
-    gulp.src(path.src.img) 
+    gulp.src(path.src.img)
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
@@ -130,6 +135,21 @@ gulp.task('fonts:build', function() {
 });
 
 
+// JSON build
+
+gulp.task('json:build', function() {
+    gulp.src(path.src.json)
+        .pipe(gulp.dest(path.build.json))
+});
+
+// PHP build
+
+gulp.task('php:build', function() {
+    gulp.src(path.src.php)
+        .pipe(gulp.dest(path.build.php))
+});
+
+
 
 // JS build
 
@@ -147,7 +167,9 @@ gulp.task('build', [
     'style:build',
     'fonts:build',
     'image:build',
-    'js:build'
+    'js:build',
+    'php:build',
+    'json:build'
 ]);
 
 

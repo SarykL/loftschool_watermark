@@ -1,0 +1,81 @@
+.sidebar-slider {
+	position: relative;
+	height: 98px;
+	border-bottom: 1px solid #f4c3c2;
+
+	&:after, &:before {
+		top: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		border-color: rgba(241, 241, 245, 0);
+		border-top-color: #f1f1f5;
+		border-width: 10px;
+		margin-left: -10px;
+	}
+
+	&:before {
+		border-color: rgba(244, 195, 194, 0);
+		border-top-color: #f4c3c2;
+		border-width: 11px;
+		margin-left: -11px;
+	}
+
+	&__block {
+		padding: 20px 20px;
+
+		&-title {
+		    font-size: 14px;
+		    color: #3b424d;
+		    font-family: "robotolight";
+		    font-weight: 300;
+			margin: 0 0 27px;
+		}
+
+		&_disable {
+			display: none;
+			opacity: .5;
+			background: #f1f1f5;
+			width: 220px;
+			height: 75px;
+			position: absolute;
+			z-index: 100;
+		}
+	}
+}
+
+
+//============Стилизация плагина jQuery UI============
+
+.ui-slider-horizontal {
+	height: 3px;
+	background-color: #dbe1e8;
+}
+
+.ui-widget-header {
+    background: #9eb2c0;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.64em;
+    margin-left: -.6em;
+	border: none;
+	outline: none;
+	background: none;
+	@include sprite($regul);
+		&:hover {
+		@include sprite($regul-h);
+		border: none;
+		cursor: pointer;
+	}
+}
+
+
+//============Стилизация плагина jQuery UI============

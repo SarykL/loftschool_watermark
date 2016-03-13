@@ -1,0 +1,49 @@
+.ui-spinner{
+  background: #F1F1F5;
+  border: none;
+}
+
+.ui-spinner .ui-spinner-input{
+  font-family: $font-family-light, sans-serif;
+  width: 46px;
+  height: 45px;
+  border: 1px solid $secondary-color;
+  border-radius: 3px;
+  font-size: 22px;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.ui-spinner .ui-spinner-button{
+  border: none;
+  background: none;
+  padding: 5px;
+}
+
+.ui-spinner .ui-spinner-up{
+  @include sprite($arrow-up);
+  top: 3px;
+  padding-bottom: 12px;
+  &:hover {
+    background: #F1F1F5;
+    @include sprite($arrow-up-hover);
+  }
+}
+
+.ui-spinner .ui-spinner-down{
+  @include sprite($arrow-down);
+  bottom: -3px;
+  margin-top: 0;
+  padding-top: 12px;
+  &:hover {
+    background: #F1F1F5;
+    @include sprite($arrow-down-hover);
+  }
+}
+
+.ui-spinner .ui-button-text{
+  padding: 0;
+}

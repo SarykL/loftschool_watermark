@@ -1,3 +1,49 @@
 // -----------------------------------------------------------------------------
 //		This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+.sidebar-buttons__buttons-row {
+	margin-top: 55px;
+	@include clearfix;
+	padding: 0 11px 25px 11px;
+
+	&_disable {
+		display: none;
+		opacity: .5;
+		background: #f1f1f5;
+		width: 245px;
+		height: 45px;
+		position: absolute;
+		z-index: 100;
+	}
+
+}
+
+.button {
+	width: 99px;
+	height: 42px;
+	border-radius: 3px;
+	border: 0 none;
+	font-family: $font-family-bold;
+	color: $white-text-color;
+}
+
+.reset-btn {
+	float: left;
+	background-color: $secondary-color-light;
+	
+	&:hover {
+		background-image: linear-gradient(to top, #c1cfd9 0%, #9eaab3 100%);
+		border: 1px solid #a6b2bb;
+	}
+}
+
+.download-btn {
+	float: right;
+	background-color: $primary-color;
+
+	&:hover {
+		background-image: linear-gradient(to top, #f97e76 0%, #e3736c 100%);
+		border: 1px solid #e3736c;
+	}
+}
