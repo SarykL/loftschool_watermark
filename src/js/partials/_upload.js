@@ -81,12 +81,13 @@ $.each( uploads, function( index, item ) {
 			$(item).fileupload({
 				dataType: 'json',
 				url: 'server/php/',
+				type: 'POST',
 				add: function( e, data ) {
 					data.submit();
 				},
 				done: function( e, data ) {
 					water = data.result.files[ 0 ];
-					var img = $('<img></img>');
+					var img = $('<img></img>');						
 					img.attr('src', water.url);
 					img.load(function(){
 						console.log(img.width() + ':' + img.height());
@@ -120,23 +121,29 @@ $.each( uploads, function( index, item ) {
 							//------------- End max position spinner-------------------
 				 	});
 					img.appendTo(spaces[1]);
-					$.ajax({
-						url: '../server/php/merge.php',
-						type: 'POST',
-						dataType: 'json',
-						data: water,
-					})
-					.done(function(ans) {
-						console.log("success");
-						console.log(ans);
-					})
-					.fail(function() {
-						console.log("error");
-					})
-					.always(function() {
-						console.log("complete");
-					});
 				}
 			});
 	}
+});
+
+
+$('.download-btn').click(function() {
+	waterOpacity = $('.workspace__watermark').css('opacity')*100;
+
+	console.log(waterOpacity);
+	$.ajax({
+		url: 'server/php/wide_merge.php',
+		type: 'POST',
+		data: {"water_url":water.url, "ground_url":ground.url, "water_opacity":waterOpacity},
+	})
+	.done(function(ans) {
+		console.log("success");
+		console.log(ans);
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});	
 });
