@@ -1,18 +1,18 @@
 <?php
+include 'lib/WideImage.php';
 
-
-$ground_url = $_POST['url'];
+$ground_url = $_POST['ground_url'];
 $water_url = $_POST['water_url'];
 
-$test12 = substr($ground_url, 12);
 // исходное изображение
 $img = substr($ground_url, 23);
 
 // imagecreatefrompng - создаёт новое изображение из файла или URL
 // водяной знак
-$wm=('files/logo.jpg');
-
-//=====================================
+$wm = substr($water_url, 23);;
+echo json_encode($wm);
+echo json_encode($img);
+//==================================================
 
 if(preg_match("/.gif/i",$img)):
 	$wm=imagecreatefromgif($wm);
@@ -24,7 +24,8 @@ else:
 	die("Ошибка! Неизвестное расширение изображения1");
 endif;
 
-//=====================================
+//=================================================
+
 
 // imagesx - получает ширину изображения
 $wmW=imagesx($wm);
@@ -34,6 +35,9 @@ $wmH=imagesy($wm);
 
 // imagecreatetruecolor - создаёт новое изображение true color
 $image=imagecreatetruecolor($wmW, $wmH);
+
+
+
 
 // выясняем расширение изображения на которое будем накладывать водяной знак
 if(preg_match("/.gif/i",$img)):
@@ -47,6 +51,12 @@ else:
 endif;
 // узнаем размер изображения
 $size=getimagesize($img);
+
+
+// imagecolorallocatealpha - делаем изображение прозрачным
+$alpha = 110;
+imagecolorallocatealpha($image, 0, 0, 0, $alpha);
+
 
 // указываем координаты, где будет располагаться водяной знак
 /*
@@ -80,5 +90,5 @@ imagedestroy($wm);
 unset($image,$img);
 
 
-echo json_encode($test12);
+exit;
 ?>
