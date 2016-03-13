@@ -26,28 +26,12 @@
 		        data.submit();
 		      },
 		      done: function( e, data ) {
-		        var ground = data.result.files[ 0 ],
-		        	groundUrl = ground.url,
-		        	img = $('<img></img>').css({
+		        ground = data.result.files[ 0 ];
+		        var img = $('<img></img>').css({
 		        		position: 'static'
 		        	});
 		    	img.attr('src', ground.url);
 		    	img.appendTo(spaces[0]);
-				$.ajax({
-					url: 'server/php/merge.php',
-					type: 'POST',
-					data: ground,
-				})
-				.done(function(ans) {
-					console.log("success");
-					console.log(ans);
-				})
-				.fail(function() {
-					console.log("error");
-				})
-				.always(function() {
-					console.log(data);
-				});
 		      }
 		    })
 		} else if ( item == '#watermark' ) {
@@ -58,16 +42,16 @@
 		        data.submit();
 		      },
 		      done: function( e, data ) {
-		        var water = data.result.files[ 0 ],
-		        	img = $('<img></img>').css({
+		        water = data.result.files[ 0 ];
+		        var img = $('<img></img>').css({
 		        		position: 'absolute'
 		        	});
 		    	img.attr('src', water.url);
 		    	img.appendTo(spaces[1]);
 				$.ajax({
-					url: 'server/php/merge.php',
+					url: 'server/php/wide_merge.php',
 					type: 'POST',
-					data: {"water_url":water.url},
+					data: {"water_url":water.url, "ground_url":ground.url},
 				})
 				.done(function(ans) {
 					console.log("success");
@@ -80,7 +64,7 @@
 					console.log("complete");
 				});
 		      }
-		    })
+		    });
 		};
 	});
 })();
