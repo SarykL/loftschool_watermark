@@ -32,35 +32,33 @@ $( 'input[type="file"]' )
 			.find( '.fake__placeholder' )
 			.text( fileName );
 	} );
-
 var uploads = [ '#fileupload', '#watermark' ],
 	spaces = ['.workspace__background','.workspace__watermark'];
 $.each( uploads, function( index, item ) {
-
-				
-
-
 	if ( item == '#fileupload' ) {
 		$(item).fileupload({
 			url: 'server/php/',
 			type: 'POST',
 			add: function(e, data) {
-						var uploadErrors = [];
-						var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
-						if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-								uploadErrors.push('Файл не того формата');
-						}
-						if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 5000000) {
-								uploadErrors.push('Файл слишком большой');
-						}
-						if(uploadErrors.length > 0) {
-								alert(uploadErrors.join("\n"));
-						} else {
-							if($('.workspace__background').find('.bg-load')){
-								$('.workspace__background').find('.bg-load').remove();
+				var uploadErrors = [];
+				var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
+				if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
+					$('span.fake__placeholder').empty();
+					$('.watermark__section_disable').show();
+					uploadErrors.push('Файл не того формата');
 				}
-								data.submit();
-						}
+				if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 5000000) {
+					$('span.fake__placeholder').empty();
+					uploadErrors.push('Файл слишком большой');
+				}
+				if(uploadErrors.length > 0) {
+						alert(uploadErrors.join("\n"));
+				} else {
+					if($('.workspace__background').find('.bg-load')){
+						$('.workspace__background').find('.bg-load').remove();
+					}
+						data.submit();
+				}
 			},
 			done: function( e, data ) {
 				ground = data.result.files[ 0 ];
@@ -77,56 +75,22 @@ $.each( uploads, function( index, item ) {
 						dataSize.bgWidth = img.width();
 						dataSize.bgHeight = img.height();
 						console.log(dataSize);
-						// if (dataSize.bgWidth >= dataSize.canvasWidth & dataSize.bgWidth > dataSize.bgHeight) {
-						// 	//  if widthbg> canvas &
-							// img.css({
-							// 	width: '100%',
-							// 	height: 'auto'
-							// });
-
-						// } else {
-						// // if (dataSize.bgHeight >= dataSize.canvasHeight & dataSize.bgHeight > dataSize.bgWidth) {
-						// 	img.css({
-						// 		height: dataSize.canvasHeight + 'px',
-						// 		width: 'auto'
-						// 	});
-						// }
-						// if (dataSize.bgWidth < dataSize.canvasWidth & dataSize.bgWidth > dataSize.bgHeight) {
-						// 	img.css({
-						// 		width: dataSize.canvasWidth,
-						// 		height: 'auto'
-						// 	});
-						// }
-						// else{
-						// 	img.css({
-						// 		height: dataSize.canvasHeight + 'px',
-						// 		width: 'auto'
-						// 	});
-						// }
-
 						if(dataSize.bgWidth > dataSize.canvasWidth || dataSize.bgHeight > dataSize.canvasHeight){
-
 							var canvasRatio = dataSize.canvasWidth / dataSize.canvasHeight;
-
 							var bgRatio = dataSize.bgWidth / dataSize.bgHeight;
 							if(canvasRatio < bgRatio){
-
 								dataSize.bgWidth = dataSize.canvasWidth;
 								dataSize.bgHeight = Math.round(dataSize.canvasWidth / bgRatio);
-
 							}else{
-
 								dataSize.bgWidth = Math.round(dataSize.canvasHeight * bgRatio);
 								dataSize.bgHeight = dataSize.canvasHeight;
 							}
 						}
 						dataSize.scaleBg = dataSize.originWidthBg / dataSize.bgWidth;
-
 							img.css({
 								width: dataSize.bgWidth,
 								height: dataSize.bgHeight
 							});
-
 					});
 				img.appendTo(spaces[0]);
 				}
@@ -140,7 +104,8 @@ $.each( uploads, function( index, item ) {
 						var uploadErrors = [];
 						var acceptFileTypes = /^image\/(gif|jpe?g|png)$/i;
 						if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
-								uploadErrors.push('Файл не того формата');
+							$('span.fake__placeholder').empty()
+							uploadErrors.push('Файл не того формата');
 						}
 						if(data.originalFiles[0]['size'].length && data.originalFiles[0]['size'] > 5000000) {
 								uploadErrors.push('Файл слишком большой');
@@ -159,7 +124,8 @@ $.each( uploads, function( index, item ) {
 						$('.workspace__watermark').css({left : 0});
 						$('.workspace__watermark').css({top : 0});
 						$('.position-input').spinner('value', 0);
-					});		            data.submit();
+					});
+						data.submit();
 						}
 			},
 
@@ -173,91 +139,48 @@ $.each( uploads, function( index, item ) {
 					img.appendTo(spaces[1]);
 					img.load(function(){
 						console.log(img.width() + ':' + img.height());
-
-
-
-
-
 						dataSize.originWidthWm = img.width();
 						dataSize.originHeightWm = img.height();
 						dataSize.wmWidth = img.width();
 						dataSize.wmHeight = img.height();
-
-
-
-
 						if(dataSize.scaleBg !== 1){
 							dataSize.wmWidth = Math.round(dataSize.wmWidth / dataSize.scaleBg);
 							dataSize.wmHeight = Math.round(dataSize.wmHeight / dataSize.scaleBg);
 						}
-
-
-
 						if(dataSize.wmWidth > dataSize.bgWidth || dataSize.wmHeight > dataSize.bgHeight){
-
 							var bgwmRatio = dataSize.bgWidth / dataSize.bgHeight;
-
 							var wmRatio = dataSize.wmWidth / dataSize.wmHeight;
-
 							if(bgwmRatio < wmRatio){
-
 								dataSize.wmWidth = dataSize.bgWidth;
 								dataSize.wmHeight = Math.round(dataSize.bgWidth / wmRatio);
-
-							}
-							else{
-
+							} else{
 								dataSize.wmWidth = Math.round(dataSize.bgHeight * wmRatio);
 								dataSize.wmHeight = dataSize.bgHeight;
 							}
 						}
 						dataSize.scaleWm = dataSize.originWidthWm / dataSize.wmWidth;
-
 							img.css({
 								width: dataSize.wmWidth,
 								height: dataSize.wmHeight
 							});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 						console.log(dataSize);
-
-						// dataSize.scaleWidth = dataSize.bgWidth/dataSize.wmWidth;
-						// dataSize.scaleHeight = dataSize.bgHeight/dataSize.wmHeight;
 							img.css({
-							// width: dataSize.wmWidth/dataSize.scaleWidth + 'px',
-							// height: dataSize.wmHeight/dataSize.scaleHeight + 'px'
 							height: 'auto'
 							});
-							// else
+		 //------------- Max position spinner-------------------
 
+		 var heightSpinner = dataSize.bgHeight - dataSize.wmHeight;
 
-						 //------------- Max position spinner-------------------
+			var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
 
-						 var heightSpinner = dataSize.bgHeight - dataSize.wmHeight;
+			var widthSpinner = dataSize.bgWidth - dataSize.wmWidth;
 
-							var maxY = $( '.coordinateY' ).spinner( "option", "max", heightSpinner );
+			var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
 
-							var widthSpinner = dataSize.bgWidth - dataSize.wmWidth;
-
-							var maxX = $( '.coordinateX' ).spinner( "option", "max", widthSpinner );
-
-							maxY.spinner();
-							maxX.spinner();
-							//------------- End max position spinner-------------------
-					});
+			maxY.spinner();
+			maxX.spinner();
+			//------------- End max position spinner-------------------
+	});
 				}
 			});
 	}
@@ -282,6 +205,6 @@ $('.download-btn').click(function() {
 	})
 	.always(function() {
 		console.log("complete");
-		document.location.href="server/php/down.php?period=week&action=CSV"
+		document.location.href="server/php/down.php?period=week&action=CSV";
 	});
 });
